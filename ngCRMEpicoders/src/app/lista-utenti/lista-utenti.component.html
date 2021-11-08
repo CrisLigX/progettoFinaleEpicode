@@ -1,32 +1,56 @@
 <div class="sfondofixed">
-    <div class="container my-3 border shadow">
+  <div class="container my-3 border shadow biancoTrasp">
 
-        <h1 class="text-center my-5 text-primary">Elenco prodotti</h1>
-       
-        <table class="table table-striped">
-          <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Quantità</th>
-                <th scope="col">Prezzo</th>
-                <th scope="col">Descrizione</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of clients; index as i">
-                <!-- <th scope="row">{{ i + 1 }}</th>
-                <td>{{ item.name }}</td>
-                <td>{{ item.qta }}</td>
-                <td>{{ item.prezzo | currency:'EUR' }}</td>
-                <td>{{ item.descrizione }}</td> -->
-                <td>
-                  <button type="button" class="btn btn-danger btn-sm" (click)="removeClient(item)">Elimina</button>
-                  <button type="button" class="btn btn-warning btn-sm mx-2" (click)="selectClient(item)">Modifica</button>
-                  <button type="button" class="btn btn-primary btn-sm" (click)="evidenzaClient(item)">Acquista</button>
-                </td>
-            </tr>
-          </tbody>
-        </table>
+    <h1 class="text-center my-5 text-dark">Elenco clienti</h1>
+
+    <table class="table table-striped text-center">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Ragione sociale</th>
+          <th scope="col">Partita IVA</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Nome contatto</th>
+          <th scope="col">Cognome contatto</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of clients; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <th>{{ item.ragioneSociale }}</th>
+          <td>{{ item.partitaIva}}</td>
+          <td>{{ item.tipoCliente }}</td>
+          <td>{{ item.nomeContatto}}</td>
+          <td>{{ item.cognomeContatto }}</td>
+          <td>
+            <button type="button" class="btn btn-danger btn-sm" (click)="removeClient(item)">Elimina</button>
+            <button type="button" class="btn btn-primary btn-sm mx-2" (click)="selectClient(item)">Seleziona</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <div class="container">
+    
+    <div class="d-flex justify-content-between p-2">
+      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+        (pageChange)="refreshClients()">
+      </ngb-pagination>
+
+      <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshClients()">
+        <option [ngValue]="20">20 clienti per pagina</option>
+        <option [ngValue]="50">50 clienti per pagina</option>
+        <option [ngValue]="100">100 clienti per pagina</option>
+      </select>
     </div>
+
+  </div>
+
+
+
 </div>

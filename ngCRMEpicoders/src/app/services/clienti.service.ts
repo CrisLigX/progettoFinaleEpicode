@@ -1,33 +1,37 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { IClienti } from '../interfaces/iclienti';
+import { Iresponse } from '../interfaces/iresponse';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientiService {
 
-  private urlAPI = 'http://localhost:3000/product/'
+  urlClienti = environment.urlAPI + '/api/clienti?size=100';
+  headers = new HttpHeaders();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+   }
 
-  getAllUsers() {
-    return this.http.get<IClienti[]>(this.urlAPI);
+  getAllClients() {
+    return this.http.get<Iresponse>(this.urlClienti);
   }
 
   getUsersById(id: any) {
-    return this.http.get<IClienti>(this.urlAPI + id)
+    return this.http.get<any>(this.urlClienti + id)
   }
 
   deleteUsers(obj: IClienti) {
-    return this.http.delete(this.urlAPI + obj.id);
+    return this.http.delete(this.urlClienti + obj.id);
   }
 
   insertUsers(obj: IClienti) {
-    return this.http.post<IClienti>(this.urlAPI, obj);
+    return this.http.post<IClienti>(this.urlClienti, obj);
   }
 
   updateUsers(item: IClienti) {
-    return this.http.put<IClienti>(this.urlAPI + item.id, item);
+    return this.http.put<IClienti>(this.urlClienti + item.id, item);
   }
 }
