@@ -1,0 +1,32 @@
+<div class="sfondofixed">
+    <div class="container my-3 border shadow">
+
+        <h1 class="text-center my-5 text-primary">Elenco prodotti</h1>
+       
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Quantità</th>
+                <th scope="col">Prezzo</th>
+                <th scope="col">Descrizione</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of clients; index as i">
+                <!-- <th scope="row">{{ i + 1 }}</th>
+                <td>{{ item.name }}</td>
+                <td>{{ item.qta }}</td>
+                <td>{{ item.prezzo | currency:'EUR' }}</td>
+                <td>{{ item.descrizione }}</td> -->
+                <td>
+                  <button type="button" class="btn btn-danger btn-sm" (click)="removeClient(item)">Elimina</button>
+                  <button type="button" class="btn btn-warning btn-sm mx-2" (click)="selectClient(item)">Modifica</button>
+                  <button type="button" class="btn btn-primary btn-sm" (click)="evidenzaClient(item)">Acquista</button>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>

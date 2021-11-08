@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.color1 {
+    background-color: #5A3FAF;
+}
+
+.color2 {
+    background-color: #00D9DA;
+}
+
+.sfondofixed {
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url("assets/img/wallpapers01.jpg");
+    padding-top: 10rem;
+}
+
+.bdr-btm-white {
+    border-bottom: 2pt solid white;
+}
+
+.bdr-top-violet {
+    border-top: 2pt solid #5A3FAF;
+}
+
+.bdr-top-white {
+    border-top: 2pt solid white;
+}
+
+.space-10 {
+    height: 10rem;
+}
+
+.biancoTrasp {
+    background-color: rgba(235, 235, 235, .5);
+}
