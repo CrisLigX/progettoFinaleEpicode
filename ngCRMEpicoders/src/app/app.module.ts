@@ -15,6 +15,7 @@ import { InserisciClienteComponent } from './inserisci-cliente/inserisci-cliente
 import { FattureClienteComponent } from './fatture-cliente/fatture-cliente.component';
 import { FattureDettaglioComponent } from './fatture-dettaglio/fatture-dettaglio.component';
 import { InserimentoProvinceComuniComponent } from './inserimento-province-comuni/inserimento-province-comuni.component';
+import { FattureListaComponent } from './fatture-lista/fatture-lista.component';
 
 const routes = [
   {
@@ -46,6 +47,11 @@ const routes = [
     path: 'inserimentoprovcom',
     component: InserimentoProvinceComuniComponent
   },
+  {
+    path: 'fatture',
+    component: FattureListaComponent
+  },
+
 
 ]
 
@@ -61,6 +67,7 @@ const routes = [
     FattureClienteComponent,
     FattureDettaglioComponent,
     InserimentoProvinceComuniComponent,
+    FattureListaComponent,
   ],
   imports: [
     BrowserModule,
