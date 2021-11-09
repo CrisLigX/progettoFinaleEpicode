@@ -1,0 +1,199 @@
+<div class="sfondofixed">
+    <div class="container my-3 border shadow biancoTrasp">
+
+        <div class="container text-center text-white py-3 my-4 color1">
+            <h1>{{ selClients.ragioneSociale }}</h1>
+            <hr class="bg-white">
+            <button type="button" class="btn btn-danger mx-2">Elimina cliente</button>
+            <button type="button" class="btn btn-light mx-2">Visualizza fatture</button>
+            <button type="button" class="btn btn-warning mx-2">Inserisci fattura</button>
+        </div>
+
+        <div class="border p-3">
+            <h4>Ragione sociale</h4>
+            <hr>
+            <p><b>{{ selClients.ragioneSociale }}</b></p>
+        </div>
+
+        <hr>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Partita IVA</h4>
+                <hr>
+                <p>{{ selClients.partitaIva }}</p>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Tipo Cliente</h4>
+                <hr>
+                <p>{{ selClients.tipoCliente }}</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>eMail</h4>
+                <hr>
+                <p>{{ selClients.email }}</p>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>PEC</h4>
+                <hr>
+                <p>{{ selClients.pec }}</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="border p-3">
+            <h4>Telefono società</h4>
+            <hr>
+            <p>{{ selClients.telefono }}</p>
+        </div>
+
+        <hr>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Nome contatto</h4>
+                <hr>
+                <h5><b>{{ selClients.nomeContatto }}</b></h5>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Cognome contatto</h4>
+                <hr>
+                <h5><b>{{ selClients.cognomeContatto }}</b></h5>
+            </div>
+
+        </div>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Telefono contatto</h4>
+                <hr>
+                <p>{{ selClients.telefonoContatto }}</p>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Email contatto</h4>
+                <hr>
+                <p>{{ selClients.emailContatto }}</p>
+            </div>
+
+        </div>
+
+        <div class="container text-center text-white py-3 my-4 color2">
+            <h3>Sede operativa</h3>
+        </div>
+
+        <div class="row px-3">
+            
+            <div class="border p-3 col">
+                <h4>Indirizzo</h4>
+                <hr>
+                <p>{{ selClients.indirizzoSedeOperativa.via }}</p>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Civico</h4>
+                <hr>
+                <p>{{ selClients.indirizzoSedeOperativa.civico }}</p>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>CAP</h4>
+                <hr>
+                <p>{{ selClients.indirizzoSedeOperativa.cap }}</p>
+            </div>
+
+        </div>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Località</h4>
+                <hr>
+                <p>{{ selClients.indirizzoSedeOperativa.localita }}</p>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Comune</h4>
+                <hr>
+                <p>{{ selClients.indirizzoSedeOperativa.comune.nome }}</p>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Provincia</h4>
+                <hr>
+                <p>{{ selClients.indirizzoSedeOperativa.comune.provincia.nome }} ({{selClients.indirizzoSedeOperativa.comune.provincia.sigla}})</p>
+            </div>
+
+        </div>
+
+        <div class="container text-center text-white py-3 my-4 color2">
+            <h3>Sede legale</h3>
+        </div>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Indirizzo</h4>
+                <hr>
+                <p>{{ selClients.indirizzoSedeLegale.via }}</p>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Civico</h4>
+                <hr>
+                <p>{{ selClients.indirizzoSedeLegale.civico }}</p>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>CAP</h4>
+                <hr>
+                <p>{{ selClients.indirizzoSedeLegale.cap }}</p>
+            </div>
+
+        </div>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Località</h4>
+                <hr>
+                <p>{{ selClients.indirizzoSedeLegale.localita }}</p>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Comune</h4>
+                <hr>
+                <p>{{ selClients.indirizzoSedeLegale.comune.nome }}</p>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Provincia</h4>
+                <hr>
+                <p>{{ selClients.indirizzoSedeLegale.comune.provincia.nome }} ({{selClients.indirizzoSedeLegale.comune.provincia.sigla}})</p>
+            </div>
+
+        </div>
+
+        <p>&nbsp;</p>
+
+    </div>
+
+    <div class="space-5"></div>
+
+
+</div>

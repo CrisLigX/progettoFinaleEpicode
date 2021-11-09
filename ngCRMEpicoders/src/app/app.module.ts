@@ -10,6 +10,8 @@ import { RouterModule } from '@angular/router';
 import { ListaUtentiComponent } from './lista-utenti/lista-utenti.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MyInterceptorInterceptor } from './my-interceptor.interceptor';
+import { DettaglioClientiComponent } from './dettaglio-clienti/dettaglio-clienti.component';
+import { InserisciClienteComponent } from './inserisci-cliente/inserisci-cliente.component';
 
 const routes = [
   {
@@ -24,6 +26,14 @@ const routes = [
   {
     path: 'listautenti',
     component: ListaUtentiComponent
+  },
+  {
+    path: 'dettaglioclienti/:id',
+    component: DettaglioClientiComponent
+  },
+  {
+    path: 'inseriscicliente',
+    component: InserisciClienteComponent
   }
 ]
 
@@ -33,7 +43,9 @@ const routes = [
     MyHeaderComponent,
     MyFooterComponent,
     ListaUtentiComponent,
-    HomePageComponent
+    HomePageComponent,
+    DettaglioClientiComponent,
+    InserisciClienteComponent,
   ],
   imports: [
     BrowserModule,

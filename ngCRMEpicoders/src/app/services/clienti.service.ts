@@ -10,6 +10,7 @@ import { Iresponse } from '../interfaces/iresponse';
 export class ClientiService {
 
   urlClienti = environment.urlAPI + '/api/clienti?size=100';
+  urlClienti2 = environment.urlAPI + '/api/clienti/';
   headers = new HttpHeaders();
 
   constructor(private http: HttpClient) {
@@ -19,8 +20,12 @@ export class ClientiService {
     return this.http.get<Iresponse>(this.urlClienti);
   }
 
-  getUsersById(id: any) {
-    return this.http.get<any>(this.urlClienti + id)
+  getTipiClienti() {
+    return this.http.get<[]>(this.urlClienti2 + 'tipicliente');
+  }
+
+  getClientsById(id: any) {
+    return this.http.get<any>(this.urlClienti2 + id)
   }
 
   deleteUsers(obj: IClienti) {

@@ -1,0 +1,205 @@
+<div class="sfondofixed">
+    <div class="container my-3 border shadow biancoTrasp">
+
+        <div class="container text-center text-white py-3 my-4 color1">
+            <h1>Inserisci un nuovo cliente</h1>
+            <hr class="bg-white">
+            <button type="button" class="btn btn-danger mx-2">Elimina cliente</button>
+            <button type="button" class="btn btn-light mx-2">Visualizza fatture</button>
+            <button type="button" class="btn btn-warning mx-2" (click)="console()">Check</button>
+        </div>
+
+        <div class="border p-3">
+            <h4>Ragione sociale</h4>
+            <hr>
+            <input type="text" class="form-control" name="ragioneSociale" [(ngModel)]="NewClient.ragioneSociale">
+        </div>
+
+        <hr>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Partita IVA</h4>
+                <hr>
+                <input type="text" class="form-control" name="partitaIva" [(ngModel)]="NewClient.partitaIva">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Tipo Cliente</h4>
+                <hr>
+                <select class="form-select" [(ngModel)]="NewClient.tipoCliente"  name="tipoCliente">
+                    <option *ngFor="let item of tipoClienti">{{item}}</option>
+                </select>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>eMail</h4>
+                <hr>
+                <input type="text" class="form-control" name="email" [(ngModel)]="NewClient.email">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>PEC</h4>
+                <hr>
+                <input type="text" class="form-control" name="pec" [(ngModel)]="NewClient.pec">
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="border p-3">
+            <h4>Telefono società</h4>
+            <hr>
+            <input type="text" class="form-control" name="telefono" [(ngModel)]="NewClient.telefono">
+        </div>
+
+        <hr>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Nome contatto</h4>
+                <hr>
+                <input type="text" class="form-control" name="nomeContatto" [(ngModel)]="NewClient.nomeContatto">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Cognome contatto</h4>
+                <hr>
+                <input type="text" class="form-control" name="cognomeContatto" [(ngModel)]="NewClient.cognomeContatto">
+            </div>
+
+        </div>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Telefono contatto</h4>
+                <hr>
+                <input type="text" class="form-control" name="telefonoContatto" [(ngModel)]="NewClient.telefonoContatto">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Email contatto</h4>
+                <hr>
+                <input type="text" class="form-control" name="emailContatto" [(ngModel)]="NewClient.emailContatto">
+            </div>
+
+        </div>
+
+        <div class="container text-center text-white py-3 my-4 color2">
+            <h3>Sede operativa</h3>
+        </div>
+
+        <div class="row px-3">
+            
+            <div class="border p-3 col">
+                <h4>Indirizzo</h4>
+                <hr>
+                <input type="text" class="form-control" name="indirizzoSedeOperativaVia" [(ngModel)]="NewClient.indirizzoSedeOperativa.via">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Civico</h4>
+                <hr>
+                <input type="text" class="form-control" name="indirizzoSedeOperativaCivico" [(ngModel)]="NewClient.indirizzoSedeOperativa.civico">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>CAP</h4>
+                <hr>
+                <input type="text" class="form-control" name="indirizzoSedeOperativaCAP" [(ngModel)]="NewClient.indirizzoSedeOperativa.cap">
+            </div>
+
+        </div> 
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Località</h4>
+                <hr>
+                <input type="text" class="form-control" name="indirizzoSedeOperativaLocalita" [(ngModel)]="NewClient.indirizzoSedeOperativa.localita">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Provincia</h4>
+                <hr>
+                <select class="form-select" name="indirizzoSedeOperativaProvincia">
+                    <option *ngFor="let item of province">{{item.nome}}</option>
+                </select>
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Comune</h4>
+                <hr>
+                <select class="form-select" [(ngModel)]="NewClient.indirizzoSedeOperativa.comune" name="indirizzoSedeOperativaComuneNome">
+                    <option selected>Seleziona provincia</option>
+                    <option [ngValue]="item" *ngFor="let item of comuni">{{item.nome}}</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="container text-center text-white py-3 my-4 color2">
+            <h3>Sede legale</h3>
+        </div>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Indirizzo</h4>
+                <hr>
+                <input type="text" class="form-control" name="indirizzoSedeLegaleVia" [(ngModel)]="NewClient.indirizzoSedeLegale.via">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Civico</h4>
+                <hr>
+                <input type="text" class="form-control" name="indirizzoSedeLegaleCivico" [(ngModel)]="NewClient.indirizzoSedeLegale.civico">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>CAP</h4>
+                <hr>
+                <input type="text" class="form-control" name="indirizzoSedeLegaleCAP" [(ngModel)]="NewClient.indirizzoSedeLegale.cap">
+            </div>
+
+        </div>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Località</h4>
+                <hr>
+                <input type="text" class="form-control" name="indirizzoSedeLegaleLocalita" [(ngModel)]="NewClient.indirizzoSedeLegale.localita">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Comune</h4>
+                <hr>
+                <input type="text" class="form-control" name="indirizzoSedeLegaleComuneNome" [(ngModel)]="NewClient.indirizzoSedeLegale.comune.nome">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Provincia</h4>
+                <hr>
+                <input type="text" class="form-control" name="indirizzoSedeLegaleProvinciaNome" [(ngModel)]="NewClient.indirizzoSedeLegale.comune.provincia.nome">
+            </div>
+
+        </div>
+
+        <p>&nbsp;</p>
+
+    </div>
+
+    <div class="space-5"></div>
+
+
+</div>

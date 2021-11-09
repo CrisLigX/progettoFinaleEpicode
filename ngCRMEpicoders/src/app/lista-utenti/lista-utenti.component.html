@@ -1,7 +1,17 @@
 <div class="sfondofixed">
   <div class="container my-3 border shadow biancoTrasp">
 
-    <h1 class="text-center my-5 text-dark">Elenco clienti</h1>
+    <div class="container text-center text-black py-3 my-4 bg-white">
+      <h2>Elenco clienti</h2>
+  </div>
+
+    <div class="my-5 text-center">
+      <button type="button" class="btn btn-success btn-lg" [routerLink] = "['/inseriscicliente']" routerLinkActive='router-link-active'>Inserisci un nuovo cliente</button>
+    </div>
+
+    <!-- <div class="input-group mb-5">
+      <input type="search" class="form-control" name="filtraClienti" placeholder="Ricerca clienti per parametro...">
+    </div> -->
 
     <table class="table table-striped text-center">
       <thead>
@@ -26,7 +36,7 @@
           <td>{{ item.cognomeContatto }}</td>
           <td>
             <button type="button" class="btn btn-danger btn-sm" (click)="removeClient(item)">Elimina</button>
-            <button type="button" class="btn btn-primary btn-sm mx-2" (click)="selectClient(item)">Seleziona</button>
+            <button type="button" class="btn btn-primary btn-sm mx-2" (click)="selectClient(item)">Dettaglio cliente</button>
           </td>
         </tr>
       </tbody>
@@ -36,7 +46,7 @@
 
 
   <div class="container">
-    
+
     <div class="d-flex justify-content-between p-2">
       <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
         (pageChange)="refreshClients()">
@@ -46,6 +56,7 @@
         <option [ngValue]="20">20 clienti per pagina</option>
         <option [ngValue]="50">50 clienti per pagina</option>
         <option [ngValue]="100">100 clienti per pagina</option>
+        <option [ngValue]="1000">Tutti i clienti</option>
       </select>
     </div>
 

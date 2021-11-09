@@ -13,8 +13,10 @@ export class ListaUtentiComponent implements OnInit {
 
   clients: IClienti[] = [];
 
+  pipeUsers = "";
+  
   page = 1;
-  pageSize = 20;
+  pageSize = 10;
   collectionSize = 0;
   clientsUpd: any;
 
@@ -32,7 +34,7 @@ export class ListaUtentiComponent implements OnInit {
 
   selectClient(obj: IClienti): void {
     console.log(obj.cognomeContatto)
-    // this.router.navigate(['products', obj.id, 'edit']);
+    this.router.navigate(['dettaglioclienti', obj.id,]);
   }
 
   evidenzaClient(obj: IClienti): void {

@@ -32,6 +32,10 @@
     border-top: 2pt solid white;
 }
 
+.space-5 {
+    height: 5rem;
+}
+
 .space-10 {
     height: 10rem;
 }
