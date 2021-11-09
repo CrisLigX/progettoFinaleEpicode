@@ -43,3 +43,13 @@
 .biancoTrasp {
     background-color: rgba(235, 235, 235, .5);
 }
+
+.fattura1 {
+    font-weight: bold;
+    color: green;
+}
+
+.fattura2 {
+    font-weight: bold;
+    color: rgb(145, 0, 0);
+}

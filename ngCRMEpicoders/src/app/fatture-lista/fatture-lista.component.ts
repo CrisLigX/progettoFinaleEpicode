@@ -14,11 +14,23 @@ export class FattureListaComponent implements OnInit {
   constructor(private FattureService: FattureService) { }
 
   ngOnInit(): void {
-    this.getInvoices();
+    this.getInvoices30();
   }
 
-  getInvoices() {
-    this.FattureService.getAllInvoices().subscribe(response => {this.invoices = response.content, console.log(this.invoices)});
+  getInvoices30() {
+    this.FattureService.getInvoices30().subscribe(response => this.invoices = response.content);
+  }
+
+  getInvoices70() {
+    this.FattureService.getInvoices70().subscribe(response => this.invoices = response.content);
+  }
+
+  getInvoices120() {
+    this.FattureService.getInvoices120().subscribe(response => this.invoices = response.content);
+  }
+
+  getInvoicesAll() {
+    this.FattureService.getInvoicesAll().subscribe(response => this.invoices = response.content);
   }
 
   removeInvoices(obj: Ifatture) {}
