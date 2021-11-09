@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { InewProvincia } from '../interfaces/inew-provincia';
 import { Iresponse } from '../interfaces/iresponse';
 
 @Injectable({
@@ -14,6 +15,10 @@ export class ProvinceService {
 
   getAllProvince() {
     return this.http.get<Iresponse>(this.urlProvince);
+  }
+
+  insertProvince(obj: InewProvincia) {
+    return this.http.post(this.urlProvince, obj);
   }
 
   

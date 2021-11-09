@@ -18,6 +18,9 @@ export class InserimentoProvinceComuniComponent implements OnInit {
     private ProvinceService: ProvinceService,
   ) { }
 
+  risultatoProv = '';
+  risutaltoComune = '';
+
   comuni: Icomuni[] = [];
   province: Iprovince[] = [];
   provinciaSel = 0;
@@ -25,14 +28,14 @@ export class InserimentoProvinceComuniComponent implements OnInit {
   nuovoComune: InewComune = {
     nome: "",
     provincia: {
-        id: 0
+      id: 0
     }
   }
 
   nuovaProvincia: InewProvincia = {
     nome: "",
     sigla: ""
-}
+  }
 
   ngOnInit(): void {
     this.GetComuni();
@@ -48,12 +51,33 @@ export class InserimentoProvinceComuniComponent implements OnInit {
   }
 
   salvaComune() {
-    this.nuovoComune.provincia.id = this.provinciaSel;
-    console.log(this.nuovoComune)
+
+    if (this.nuovoComune.nome != "" && this.provinciaSel != 0) {
+      if (!this.comuni.find(element => element.nome == this.nuovoComune.nome)) {
+        this.nuovoComune.provincia.id = this.provinciaSel;
+        this.ComuniService.insertComune(this.nuovoComune).subscribe(response => console.log(response))
+        this.risutaltoComune = 'Comune inserito con successo!'
+      } else {
+        alert('Comune già presente nel database!')
+      }
+    } else {
+      alert('Riempi tutti i campi')
+    }
   }
 
   salvaProvincia() {
-    console.log(this.nuovaProvincia)
+
+    if (this.nuovaProvincia.nome != "" && this.nuovaProvincia.sigla != "") {
+      if (!this.province.find(element => element.nome == this.nuovaProvincia.nome)) {
+        this.ProvinceService.insertProvince(this.nuovaProvincia).subscribe(response => console.log(response))
+        this.GetProvince();
+        this.risultatoProv = 'Provincia inserita con successo!'
+      } else {
+        alert('Provincia già presente nel database!')
+      }
+    } else {
+      alert('Riempi tutti i campi')
+    }
   }
 
 

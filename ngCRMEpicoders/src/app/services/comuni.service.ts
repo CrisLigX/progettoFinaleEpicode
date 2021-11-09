@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Icomuni } from '../interfaces/icomuni';
+import { InewComune } from '../interfaces/inew-comune';
 import { Iprovince } from '../interfaces/iprovince';
 import { Iresponse } from '../interfaces/iresponse';
 
@@ -23,6 +24,10 @@ export class ComuniService {
   comuneDaProvincia(obj: Iprovince) {
     this.getAllComuni().subscribe(response => this.comuniFilter = response.content)
     return this.comuniFilter.filter(element => element.provincia.nome == obj.nome)
+  }
+
+  insertComune(obj: InewComune) {
+    return this.http.post(this.urlComuni, obj);
   }
 
 }

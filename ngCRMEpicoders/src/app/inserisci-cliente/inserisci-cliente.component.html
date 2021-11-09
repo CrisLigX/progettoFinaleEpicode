@@ -132,7 +132,7 @@
                 <select class="form-select" name="indirizzoSedeOperativaProvincia">
                     <option *ngFor="let item of province">{{item.nome}}</option>
                 </select>
-                <button type="button" class="btn btn-warning btn-sm mt-1">Clicca per inserire una nuova provincia</button>
+                <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire una nuova provincia</button>
             </div>
 
             <div class="border p-3 col">
@@ -142,7 +142,7 @@
                     <option selected>Seleziona provincia</option>
                     <option [ngValue]="item" *ngFor="let item of comuni">{{item.nome}}</option>
                 </select>
-                <button type="button" class="btn btn-warning btn-sm mt-1">Clicca per inserire un nuovo comune</button>
+                <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire un nuovo comune</button>
             </div>
 
         </div>

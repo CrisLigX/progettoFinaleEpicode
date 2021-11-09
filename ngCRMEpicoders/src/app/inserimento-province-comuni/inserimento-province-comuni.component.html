@@ -12,8 +12,8 @@
             <div class="border p-3 col">
                 <h4>Inserisci nome comune</h4>
                 <hr>
-                <input type="text" class="form-control" name="nuovoComune" [(ngModel)]="nuovoComune.nome"
-                    placeholder="Inserici il nome...">
+                <input oninput="this.value = this.value.toUpperCase()" type="text" class="form-control"
+                    name="nuovoComune" [(ngModel)]="nuovoComune.nome" placeholder="Inserici il nome...">
             </div>
 
             <div class="border p-3 col">
@@ -24,6 +24,10 @@
                 </select>
             </div>
 
+        </div>
+
+        <div class="text-center">
+            <h4 class="text-primary">{{risutaltoComune}}</h4>
         </div>
 
         <div class="text-center m-5">
@@ -46,19 +50,27 @@
             <div class="border p-3 col">
                 <h4>Inserisci nome provincia</h4>
                 <hr>
-                <input type="text" class="form-control" name="nuovaProvincia" [(ngModel)]="nuovaProvincia.nome" placeholder="Inserici il nome della provincia...">
+                <input oninput="this.value = this.value.toUpperCase()" type="text" class="form-control"
+                    name="nuovaProvincia" [(ngModel)]="nuovaProvincia.nome"
+                    placeholder="Inserici il nome della provincia...">
             </div>
 
             <div class="border p-3 col">
                 <h4>Inserisci sigla provincia</h4>
                 <hr>
-                <input type="text" class="form-control" name="nuovaProvinciaSigla" [(ngModel)]="nuovaProvincia.sigla" placeholder="Inserici la sigla della provincia...">
+                <input oninput="this.value = this.value.toUpperCase()" type="text" class="form-control"
+                    name="nuovaProvinciaSigla" [(ngModel)]="nuovaProvincia.sigla"
+                    placeholder="Inserici la sigla della provincia..." maxlength="2">
             </div>
 
         </div>
 
+        <div class="text-center">
+            <h4 class="text-primary">{{risultatoProv}}</h4>
+        </div>
+
         <div class="text-center m-5">
-            <button class="btn btn-success btn-lg" (click)="salvaProvincia()">Salva comune</button>
+            <button class="btn btn-success btn-lg" (click)="salvaProvincia()">Salva provincia</button>
         </div>
 
 
