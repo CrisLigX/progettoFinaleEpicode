@@ -23,7 +23,6 @@
           <th scope="col">Nome contatto</th>
           <th scope="col">Cognome contatto</th>
           <th scope="col"></th>
-          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -36,7 +35,7 @@
           <td>{{ item.cognomeContatto }}</td>
           <td>
             <button type="button" class="btn btn-danger btn-sm" (click)="removeClient(item)">Elimina</button>
-            <button type="button" class="btn btn-primary btn-sm mx-2" (click)="selectClient(item)">Dettaglio cliente</button>
+            <button type="button" class="btn btn-primary btn-sm mx-2" (click)="selectClient(item)">Dettaglio</button>
           </td>
         </tr>
       </tbody>

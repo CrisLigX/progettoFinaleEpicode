@@ -4,9 +4,6 @@
         <div class="container text-center text-white py-3 my-4 color1">
             <h1>{{Btx02}}</h1>
             <hr class="bg-white">
-            <button type="button" class="btn btn-danger mx-2">Elimina cliente</button>
-            <button type="button" class="btn btn-light mx-2">Visualizza fatture</button>
-            <button type="button" class="btn btn-warning mx-2" (click)="console()">Check</button>
         </div>
 
         <div class="border p-3">
@@ -133,9 +130,9 @@
                 <hr>
                 <!-- <select class="form-select" [ngModel]="ProvinciaSelezionata" [ngModelChange]="CambioProvincia($event)" name="indirizzoSedeOperativaProvincia"> -->
                 <select class="form-select" name="indirizzoSedeOperativaProvincia">
-
                     <option *ngFor="let item of province">{{item.nome}}</option>
                 </select>
+                <button type="button" class="btn btn-warning btn-sm mt-1">Clicca per inserire una nuova provincia</button>
             </div>
 
             <div class="border p-3 col">
@@ -145,6 +142,7 @@
                     <option selected>Seleziona provincia</option>
                     <option [ngValue]="item" *ngFor="let item of comuni">{{item.nome}}</option>
                 </select>
+                <button type="button" class="btn btn-warning btn-sm mt-1">Clicca per inserire un nuovo comune</button>
             </div>
 
         </div>
@@ -189,6 +187,7 @@
                 <select class="form-select" name="indirizzoSedeLegaleProvincia">
                     <option *ngFor="let item of province">{{item.nome}}</option>
                 </select>
+                <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire una nuova provincia</button>
             </div>
 
             <div class="border p-3 col">
@@ -198,6 +197,7 @@
                     <option selected>Seleziona provincia</option>
                     <option [ngValue]="item" *ngFor="let item of comuni">{{item.nome}}</option>
                 </select>
+                <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire un nuovo comune</button>
             </div>
 
         </div>

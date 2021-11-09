@@ -16,7 +16,7 @@ export class ListaUtentiComponent implements OnInit {
   pipeUsers = "";
   
   page = 1;
-  pageSize = 10;
+  pageSize = 15;
   collectionSize = 0;
   clientsUpd: any;
 
@@ -28,18 +28,14 @@ export class ListaUtentiComponent implements OnInit {
     this.getClients();
   }
 
-  removeClient(obj: IClienti): void {
-    this.ClientiService.deleteClients(obj).subscribe(response => {this.getClients(), console.log(response)});
+  removeClient(item: IClienti) {
+    this.ClientiService.deleteClients(item).subscribe(response => {console.log(response), console.log('Utente eliminato'), this.getClients()})
   }
 
   selectClient(obj: IClienti): void {
     console.log(obj.cognomeContatto)
     this.router.navigate(['dettaglioclienti', obj.id,]);
   }
-
-  // evidenzaClient(obj: IClienti): void {
-  //   this.router.navigate(['products', obj.id, 'buy']);
-  // }
 
   getClients() {
     this.ClientiService.getAllClients().subscribe(response => {this.clients = response.content; this.collectionSize = this.clients.length; this.refreshClients();});

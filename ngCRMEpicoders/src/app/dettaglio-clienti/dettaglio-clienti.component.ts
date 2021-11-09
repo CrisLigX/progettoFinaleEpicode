@@ -62,4 +62,8 @@ export class DettaglioClientiComponent implements OnInit {
     this.router.navigate(['modificacliente', this.selClients.id]);
   }
 
+  eliminaUtente() {
+    this.ClientsService.deleteClients(this.selClients).subscribe(response => {console.log(response), console.log('Utente eliminato'), this.router.navigate(['listautenti'])})
+  }
+
 }

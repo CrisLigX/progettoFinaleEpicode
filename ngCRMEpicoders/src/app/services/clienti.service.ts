@@ -29,7 +29,7 @@ export class ClientiService {
   }
 
   deleteClients(obj: IClienti) {
-    return this.http.delete(this.urlClienti + obj.id);
+    return this.http.delete(this.urlClienti2 + obj.id);
   }
 
   insertClients(obj: any) {

@@ -4,9 +4,9 @@
         <div class="container text-center text-white py-3 my-4 color1">
             <h1>{{ selClients.ragioneSociale }}</h1>
             <hr class="bg-white">
-            <button type="button" class="btn btn-danger mx-2">Elimina cliente</button>
+            <button type="button" class="btn btn-danger mx-2" (click)="eliminaUtente()">Elimina cliente</button>
             <button type="button" class="btn btn-light mx-2">Visualizza fatture</button>
-            <button type="button" (click)="modifica()" class="btn btn-warning mx-2" >Modifica cliente</button>
+            <button type="button" class="btn btn-warning mx-2" (click)="modifica()">Modifica cliente</button>
         </div>
 
         <div class="border p-3">

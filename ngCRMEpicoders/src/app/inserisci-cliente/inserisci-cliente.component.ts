@@ -105,11 +105,6 @@ ProvinciaSelezionata = "";
     }
   }
 
-  console() {
-    console.log(this.NewClient)
-    
-  }
-
   TipoClienti() {
     this.ClientsService.getTipiClienti().subscribe(response => this.tipoClienti = response);
   }

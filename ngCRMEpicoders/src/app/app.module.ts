@@ -12,6 +12,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MyInterceptorInterceptor } from './my-interceptor.interceptor';
 import { DettaglioClientiComponent } from './dettaglio-clienti/dettaglio-clienti.component';
 import { InserisciClienteComponent } from './inserisci-cliente/inserisci-cliente.component';
+import { FattureClienteComponent } from './fatture-cliente/fatture-cliente.component';
+import { FattureDettaglioComponent } from './fatture-dettaglio/fatture-dettaglio.component';
+import { InserimentoProvinceComuniComponent } from './inserimento-province-comuni/inserimento-province-comuni.component';
 
 const routes = [
   {
@@ -39,6 +42,11 @@ const routes = [
     path: 'modificacliente/:id',
     component: InserisciClienteComponent
   },
+  {
+    path: 'inserimentoprovcom',
+    component: InserimentoProvinceComuniComponent
+  },
+
 ]
 
 @NgModule({
@@ -50,6 +58,9 @@ const routes = [
     HomePageComponent,
     DettaglioClientiComponent,
     InserisciClienteComponent,
+    FattureClienteComponent,
+    FattureDettaglioComponent,
+    InserimentoProvinceComuniComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,69 @@
+<div class="sfondofixed">
+    <div class="container my-3 border shadow biancoTrasp">
+
+        <div class="container text-center text-white py-3 my-4 color1">
+            <h1>Crea nuovo comune nel database</h1>
+            <hr class="bg-white">
+        </div>
+
+
+        <div class="row p-3">
+
+            <div class="border p-3 col">
+                <h4>Inserisci nome comune</h4>
+                <hr>
+                <input type="text" class="form-control" name="nuovoComune" [(ngModel)]="nuovoComune.nome"
+                    placeholder="Inserici il nome...">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Seleziona la provincia</h4>
+                <hr>
+                <select class="form-select" name="province" [(ngModel)]="provinciaSel">
+                    <option [ngValue]="item.id" *ngFor="let item of province">{{item.nome}}</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="text-center m-5">
+            <button class="btn btn-success btn-lg" (click)="salvaComune()">Salva comune</button>
+        </div>
+
+
+    </div>
+
+    <div class="container my-3 border shadow biancoTrasp">
+
+        <div class="container text-center text-white py-3 my-4 color2">
+            <h1>Crea nuova provincia nel database</h1>
+            <hr class="bg-white">
+        </div>
+
+
+        <div class="row p-3">
+
+            <div class="border p-3 col">
+                <h4>Inserisci nome provincia</h4>
+                <hr>
+                <input type="text" class="form-control" name="nuovaProvincia" [(ngModel)]="nuovaProvincia.nome" placeholder="Inserici il nome della provincia...">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Inserisci sigla provincia</h4>
+                <hr>
+                <input type="text" class="form-control" name="nuovaProvinciaSigla" [(ngModel)]="nuovaProvincia.sigla" placeholder="Inserici la sigla della provincia...">
+            </div>
+
+        </div>
+
+        <div class="text-center m-5">
+            <button class="btn btn-success btn-lg" (click)="salvaProvincia()">Salva comune</button>
+        </div>
+
+
+    </div>
+
+    <div class="space-5"></div>
+
+</div>
