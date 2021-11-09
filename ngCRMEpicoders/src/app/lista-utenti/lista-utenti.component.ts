@@ -29,7 +29,7 @@ export class ListaUtentiComponent implements OnInit {
   }
 
   removeClient(obj: IClienti): void {
-    this.ClientiService.deleteUsers(obj).subscribe(response => {this.getClients(), console.log(response)});
+    this.ClientiService.deleteClients(obj).subscribe(response => {this.getClients(), console.log(response)});
   }
 
   selectClient(obj: IClienti): void {
@@ -37,9 +37,9 @@ export class ListaUtentiComponent implements OnInit {
     this.router.navigate(['dettaglioclienti', obj.id,]);
   }
 
-  evidenzaClient(obj: IClienti): void {
-    this.router.navigate(['products', obj.id, 'buy']);
-  }
+  // evidenzaClient(obj: IClienti): void {
+  //   this.router.navigate(['products', obj.id, 'buy']);
+  // }
 
   getClients() {
     this.ClientiService.getAllClients().subscribe(response => {this.clients = response.content; this.collectionSize = this.clients.length; this.refreshClients();});

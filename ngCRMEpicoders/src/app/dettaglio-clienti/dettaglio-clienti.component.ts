@@ -50,11 +50,16 @@ export class DettaglioClientiComponent implements OnInit {
             }
         }
     },
-    fatturatoAnnuale: 0,
+    dataInserimento: "",
+    dataUltimoContatto: ""
 }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => { this.ClientsService.getClientsById(params.id).subscribe(response => {console.log(response); this.selClients = response}) });
+  }
+
+  modifica() {
+    this.router.navigate(['modificacliente', this.selClients.id]);
   }
 
 }

@@ -2,7 +2,7 @@
     <div class="container my-3 border shadow biancoTrasp">
 
         <div class="container text-center text-white py-3 my-4 color1">
-            <h1>Inserisci un nuovo cliente</h1>
+            <h1>{{Btx02}}</h1>
             <hr class="bg-white">
             <button type="button" class="btn btn-danger mx-2">Elimina cliente</button>
             <button type="button" class="btn btn-light mx-2">Visualizza fatture</button>
@@ -131,7 +131,9 @@
             <div class="border p-3 col">
                 <h4>Provincia</h4>
                 <hr>
+                <!-- <select class="form-select" [ngModel]="ProvinciaSelezionata" [ngModelChange]="CambioProvincia($event)" name="indirizzoSedeOperativaProvincia"> -->
                 <select class="form-select" name="indirizzoSedeOperativaProvincia">
+
                     <option *ngFor="let item of province">{{item.nome}}</option>
                 </select>
             </div>
@@ -182,18 +184,29 @@
             </div>
 
             <div class="border p-3 col">
-                <h4>Comune</h4>
+                <h4>Provincia</h4>
                 <hr>
-                <input type="text" class="form-control" name="indirizzoSedeLegaleComuneNome" [(ngModel)]="NewClient.indirizzoSedeLegale.comune.nome">
+                <select class="form-select" name="indirizzoSedeLegaleProvincia">
+                    <option *ngFor="let item of province">{{item.nome}}</option>
+                </select>
             </div>
 
             <div class="border p-3 col">
-                <h4>Provincia</h4>
+                <h4>Comune</h4>
                 <hr>
-                <input type="text" class="form-control" name="indirizzoSedeLegaleProvinciaNome" [(ngModel)]="NewClient.indirizzoSedeLegale.comune.provincia.nome">
+                <select class="form-select" [(ngModel)]="NewClient.indirizzoSedeLegale.comune" name="indirizzoSedeOperativaComuneNome">
+                    <option selected>Seleziona provincia</option>
+                    <option [ngValue]="item" *ngFor="let item of comuni">{{item.nome}}</option>
+                </select>
             </div>
 
         </div>
+
+        <div class="container text-center text-white py-3 my-4 color1">
+            <button type="button" class="btn-lg btn-success mx-2" (click)="saveProduct()">{{Btx01}}</button>
+        </div>
+
+
 
         <p>&nbsp;</p>
 

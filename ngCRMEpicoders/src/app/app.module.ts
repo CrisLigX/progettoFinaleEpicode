@@ -34,7 +34,11 @@ const routes = [
   {
     path: 'inseriscicliente',
     component: InserisciClienteComponent
-  }
+  },
+  {
+    path: 'modificacliente/:id',
+    component: InserisciClienteComponent
+  },
 ]
 
 @NgModule({

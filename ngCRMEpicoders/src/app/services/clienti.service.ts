@@ -9,7 +9,7 @@ import { Iresponse } from '../interfaces/iresponse';
 })
 export class ClientiService {
 
-  urlClienti = environment.urlAPI + '/api/clienti?size=100';
+  urlClienti = environment.urlAPI + '/api/clienti?size=1000';
   urlClienti2 = environment.urlAPI + '/api/clienti/';
   headers = new HttpHeaders();
 
@@ -28,15 +28,15 @@ export class ClientiService {
     return this.http.get<any>(this.urlClienti2 + id)
   }
 
-  deleteUsers(obj: IClienti) {
+  deleteClients(obj: IClienti) {
     return this.http.delete(this.urlClienti + obj.id);
   }
 
-  insertUsers(obj: IClienti) {
-    return this.http.post<IClienti>(this.urlClienti, obj);
+  insertClients(obj: any) {
+    return this.http.post(environment.urlAPI + '/api/clienti', obj);
   }
 
-  updateUsers(item: IClienti) {
-    return this.http.put<IClienti>(this.urlClienti + item.id, item);
+  updateClients(item: IClienti) {
+    return this.http.put(this.urlClienti2 + item.id, item);
   }
 }

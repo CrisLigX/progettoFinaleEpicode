@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IClienti } from '../interfaces/iclienti';
 import { Icomuni } from '../interfaces/icomuni';
+import { Iprovince } from '../interfaces/iprovince';
 import { ClientiService } from '../services/clienti.service';
 import { ComuniService } from '../services/comuni.service';
 import { ProvinceService } from '../services/province.service';
@@ -49,19 +51,58 @@ export class InserisciClienteComponent implements OnInit {
             }
         }
     },
-    fatturatoAnnuale: 0,
+    dataInserimento: "",
+    dataUltimoContatto: ""
 }
 
 tipoClienti = [];
 comuni: Icomuni[] = [];
-province: Icomuni[] = [];
+province: Iprovince[] = [];
+Btx01 = 'Salva cliente'
+Btx02 = 'Inserisci un nuovo cliente'
+ProvinciaSelezionata = "";
 
-  constructor(private ClientsService: ClientiService, private ComuniService: ComuniService, private ProvinceService: ProvinceService) { }
+  constructor(
+    private ClientsService: ClientiService,
+    private ComuniService: ComuniService,
+    private ProvinceService: ProvinceService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.route.params.subscribe(params => {
+      if(params.id) {
+        this.ClientsService.getClientsById(params.id).subscribe(response => this.NewClient = response)
+        console.log(params.id)
+        this.Btx01 = 'Aggiorna utente'
+        this.Btx02 = 'Aggiorna cliente'
+      } else {
+        console.log('Nessun parametro')
+      }
+    })
+  
     this.TipoClienti();
     this.GetComuni();
     this.GetProvince();
+
+    
+  }
+
+  saveProduct() {
+    if (this.NewClient.ragioneSociale != '' && this.NewClient.partitaIva != '') {
+      if(!this.NewClient.id) {
+        console.log('Cliente aggiunto!')
+        console.log(this.NewClient);
+        this.ClientsService.insertClients(this.NewClient).subscribe(response => console.log(response));
+      } else {
+        this.ClientsService.updateClients(this.NewClient).subscribe(response => console.log(response));
+        console.log('Cliente aggiornato!')
+      }
+      
+    } else {
+      alert('Compila tutti i campi!')
+    }
   }
 
   console() {
@@ -70,15 +111,19 @@ province: Icomuni[] = [];
   }
 
   TipoClienti() {
-    this.ClientsService.getTipiClienti().subscribe(response => {this.tipoClienti = response, console.log(response)});
+    this.ClientsService.getTipiClienti().subscribe(response => this.tipoClienti = response);
   }
 
   GetComuni() {
-    this.ComuniService.getAllComuni().subscribe(response => {this.comuni = response.content; console.log(response.content)});
+    this.ComuniService.getAllComuni().subscribe(response => this.comuni = response.content);
   }
 
   GetProvince() {
-    this.ProvinceService.getAllProvince().subscribe(response => {this.province = response.content; console.log(this.province)});
+    this.ProvinceService.getAllProvince().subscribe(response => this.province = response.content);
+  }
+
+  CambioProvincia(obj: Iprovince) {
+    this.comuni = this.ComuniService.comuneDaProvincia(obj);
   }
 
 }
