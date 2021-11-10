@@ -1,0 +1,65 @@
+<div class="sfondofixed">
+    <div class="container my-3 border shadow biancoTrasp">
+
+        <div class="container text-center text-white py-3 my-4 color1">
+            <h1>{{Btx02}}</h1>
+            <hr class="bg-white">
+        </div>
+
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Data</h4>
+                <hr>
+                <input type="date" class="form-control" name="data" [(ngModel)]="newFattura.data">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Numero</h4>
+                <hr>
+                <input type="number" class="form-control" name="numero" [(ngModel)]="newFattura.numero">
+            </div>
+
+            <div class="border p-3 col">
+                <h4>Anno</h4>
+                <hr>
+                <input type="number" class="form-control" name="anno" [(ngModel)]="newFattura.anno">
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row px-3">
+
+            <div class="border p-3 col">
+                <h4>Importo</h4>
+                <hr>
+                <input type="number" class="form-control" name="importo" [(ngModel)]="newFattura.importo">
+            </div>
+
+
+            <div class="border p-3 col">
+                <h4>Stato fattura</h4>
+                <hr>
+                <select class="form-select" [(ngModel)]="newFattura.stato" name="statoFattura">
+                    <option selected>Stato fattura</option>
+                    <option [ngValue]="item" *ngFor="let item of statoFattura">{{item.nome}}</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="container text-center text-white py-3 my-4 color1">
+            <button type="button" class="btn-lg btn-success mx-2" (click)="saveInvoices()">{{Btx01}}</button>
+        </div>
+
+        <p>&nbsp;</p>
+
+    </div>
+
+    <div class="space-5"></div>
+
+
+</div>

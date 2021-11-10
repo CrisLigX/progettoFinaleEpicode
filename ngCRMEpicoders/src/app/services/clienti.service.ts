@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { IClienti } from '../interfaces/iclienti';
+import { InewClient } from '../interfaces/inew-client';
 import { Iresponse } from '../interfaces/iresponse';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { Iresponse } from '../interfaces/iresponse';
 })
 export class ClientiService {
 
-  urlClienti = environment.urlAPI + '/api/clienti?size=1000';
+  urlClienti = environment.urlAPI + '/api/clienti?page=0&size=2000&sort=id,DESC';
   urlClienti2 = environment.urlAPI + '/api/clienti/';
   headers = new HttpHeaders();
 
@@ -17,7 +18,15 @@ export class ClientiService {
    }
 
   getAllClients() {
-    return this.http.get<Iresponse>(this.urlClienti);
+    return this.http.get<Iresponse>(environment.urlAPI + '/api/clienti?page=0&size=2000&sort=id,DESC');
+  }
+
+  getClients100() {
+    return this.http.get<Iresponse>(environment.urlAPI + '/api/clienti?page=0&size=100&sort=id,DESC');
+  }
+
+  getClients20() {
+    return this.http.get<Iresponse>(environment.urlAPI + '/api/clienti?page=0&size=20&sort=id,DESC');
   }
 
   getTipiClienti() {
@@ -32,7 +41,7 @@ export class ClientiService {
     return this.http.delete(this.urlClienti2 + obj.id);
   }
 
-  insertClients(obj: any) {
+  insertClients(obj: InewClient) {
     return this.http.post(environment.urlAPI + '/api/clienti', obj);
   }
 

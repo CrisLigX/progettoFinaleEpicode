@@ -74,7 +74,6 @@ ProvinciaSelezionata = "";
     this.route.params.subscribe(params => {
       if(params.id) {
         this.ClientsService.getClientsById(params.id).subscribe(response => this.NewClient = response)
-        console.log(params.id)
         this.Btx01 = 'Aggiorna utente'
         this.Btx02 = 'Aggiorna cliente'
       } else {
@@ -93,12 +92,13 @@ ProvinciaSelezionata = "";
     if (this.NewClient.ragioneSociale != '' && this.NewClient.partitaIva != '') {
       if(!this.NewClient.id) {
         console.log('Cliente aggiunto!')
-        console.log(this.NewClient);
         this.ClientsService.insertClients(this.NewClient).subscribe(response => console.log(response));
       } else {
         this.ClientsService.updateClients(this.NewClient).subscribe(response => console.log(response));
         console.log('Cliente aggiornato!')
       }
+
+      this.router.navigate(['listautenti']);
       
     } else {
       alert('Compila tutti i campi!')

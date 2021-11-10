@@ -10,10 +10,6 @@
         routerLinkActive='router-link-active'>Inserisci un nuovo cliente</button>
     </div>
 
-    <!-- <div class="input-group mb-5">
-      <input type="search" class="form-control" name="filtraClienti" placeholder="Ricerca clienti per parametro...">
-    </div> -->
-
     <table class="table table-striped text-center">
       <thead>
         <tr>
@@ -44,24 +40,14 @@
 
   </div>
 
+  <div class="container float-start my-3">
+    <h5>Visualizza elementi per pagina:</h5>
+    <button type="button" class="btn btn-light btn-sm mx-1" (click)="getClients20()">20</button>
+    <button type="button" class="btn btn-light btn-sm mx-1" (click)="getClients100()">100</button>
+    <button type="button" class="btn btn-light btn-sm mx-1" (click)="getAllClients()">Tutti</button>
+</div>
 
-  <div class="container">
-
-    <div class="d-flex justify-content-between p-2">
-      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-        (pageChange)="refreshClients()">
-      </ngb-pagination>
-
-      <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshClients()">
-        <option [ngValue]="20">20 clienti per pagina</option>
-        <option [ngValue]="50">50 clienti per pagina</option>
-        <option [ngValue]="100">100 clienti per pagina</option>
-        <option [ngValue]="1000">Tutti i clienti</option>
-      </select>
-    </div>
-
-  </div>
-
+<div class="space-10"></div>
 
 
 </div>

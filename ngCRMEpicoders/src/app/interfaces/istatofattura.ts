@@ -1,4 +1,4 @@
 export interface Istatofattura {
     id?: number,
-            nome: string
+    nome: string
 }

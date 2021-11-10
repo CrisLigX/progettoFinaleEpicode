@@ -1,9 +1,9 @@
 export interface Icomuni {
     id?: number,
-            nome: string,
-            provincia: {
-                id?: number,
-                nome: string,
-                sigla: string
-            }
+    nome: string,
+    provincia: {
+        id?: number,
+        nome: string,
+        sigla: string
+    }
 }

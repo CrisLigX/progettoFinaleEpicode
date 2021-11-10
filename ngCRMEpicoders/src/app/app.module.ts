@@ -16,6 +16,7 @@ import { FattureClienteComponent } from './fatture-cliente/fatture-cliente.compo
 import { FattureDettaglioComponent } from './fatture-dettaglio/fatture-dettaglio.component';
 import { InserimentoProvinceComuniComponent } from './inserimento-province-comuni/inserimento-province-comuni.component';
 import { FattureListaComponent } from './fatture-lista/fatture-lista.component';
+import { InserisciFattureComponent } from './inserisci-fatture/inserisci-fatture.component';
 
 const routes = [
   {
@@ -55,8 +56,14 @@ const routes = [
     path: 'fatturecliente/:id',
     component: FattureClienteComponent
   },
-
-
+  {
+    path: 'modificafattura/:id',
+    component: InserisciFattureComponent
+  },
+  {
+    path: 'inseriscifattura/:id',
+    component: InserisciFattureComponent
+  }
 ]
 
 @NgModule({
@@ -72,6 +79,7 @@ const routes = [
     FattureDettaglioComponent,
     InserimentoProvinceComuniComponent,
     FattureListaComponent,
+    InserisciFattureComponent,
   ],
   imports: [
     BrowserModule,

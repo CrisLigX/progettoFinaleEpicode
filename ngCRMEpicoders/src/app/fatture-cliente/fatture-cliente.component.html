@@ -29,8 +29,8 @@
                 <td class="fattura{{item.stato.id}}">{{ item.stato.nome }}</td>
                 <td>{{ item.cliente.ragioneSociale }}</td>
                 <td>
-                  <!-- <button type="button" class="btn btn-danger btn-sm" (click)="removeInvoices(item)">Elimina</button>
-                  <button type="button" class="btn btn-primary btn-sm mx-2" (click)="selectInvoices(item)">Dettaglio</button> -->
+                  <button type="button" class="btn btn-danger btn-sm" (click)="removeInvoices(item)">Elimina</button>
+                  <button type="button" class="btn btn-warning btn-sm mx-2" (click)="modificaFatture(item)">Modifica</button>
                 </td>
               </tr>
             </tbody>

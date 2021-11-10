@@ -13,11 +13,6 @@ export class ListaUtentiComponent implements OnInit {
 
   clients: IClienti[] = [];
 
-  pipeUsers = "";
-  
-  page = 1;
-  pageSize = 15;
-  collectionSize = 0;
   clientsUpd: any;
 
 
@@ -25,11 +20,11 @@ export class ListaUtentiComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getClients();
+    this.getClients20();
   }
 
   removeClient(item: IClienti) {
-    this.ClientiService.deleteClients(item).subscribe(response => {console.log(response), console.log('Utente eliminato'), this.getClients()})
+    this.ClientiService.deleteClients(item).subscribe(response => {console.log(response), console.log('Utente eliminato'), this.getClients20()})
   }
 
   selectClient(obj: IClienti): void {
@@ -37,13 +32,16 @@ export class ListaUtentiComponent implements OnInit {
     this.router.navigate(['dettaglioclienti', obj.id,]);
   }
 
-  getClients() {
-    this.ClientiService.getAllClients().subscribe(response => {this.clients = response.content; this.collectionSize = this.clients.length; this.refreshClients();});
+  getAllClients() {
+    this.ClientiService.getAllClients().subscribe(response => this.clients = response.content);
   }
 
-  refreshClients() {
-    this.getClients()
-    this.clients = this.clients.map((clients, i) => ({id: i + 1, ...clients})).slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+  getClients100() {
+    this.ClientiService.getClients100().subscribe(response => this.clients = response.content);
+  }
+
+  getClients20() {
+    this.ClientiService.getClients20().subscribe(response => this.clients = response.content);
   }
 
 }
