@@ -64,17 +64,16 @@ export class InserisciFattureComponent implements OnInit {
   saveInvoices() {
     if (this.newFattura.data != '' && this.newFattura.importo != 0) {
       if(!this.newFattura.id) {
-        this.FattureService.insertInvoices(this.newFattura).subscribe(response => console.log(response));
+        this.FattureService.insertInvoices(this.newFattura).subscribe(response => {console.log(response), this.router.navigate(['fatturecliente/' + this.newFattura.cliente.id])});
       } else {
-        this.FattureService.updateInvoices(this.newFattura).subscribe(response => console.log(response));
+        this.FattureService.updateInvoices(this.newFattura).subscribe(response => {console.log(response), this.router.navigate(['fatturecliente/' + this.newFattura.cliente.id])});
       }
-
-      this.router.navigate(['fatturecliente/' + this.newFattura.cliente.id]);
       
     } else {
       alert('Compila tutti i campi!')
     }
   }
+  
 
 
 }

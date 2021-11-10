@@ -40,6 +40,10 @@
     height: 10rem;
 }
 
+.space-15 {
+    height: 15rem;
+}
+
 .biancoTrasp {
     background-color: rgba(235, 235, 235, .5);
 }
