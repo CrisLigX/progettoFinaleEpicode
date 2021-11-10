@@ -41,19 +41,40 @@ export class InserisciFattureComponent implements OnInit {
   ngOnInit(): void {
     this.getInvoicesStatus();
     this.setParams();
+
+    this.route.params.subscribe(params => {
+      if(params.idFattura) {
+        this.FattureService.getInvoicesById(params.idFattura).subscribe(response => this.newFattura = response)
+        this.Btx01 = 'Aggiorna fattura'
+        this.Btx02 = 'Aggiorna fattura'
+      } else {
+        console.log('Nessun parametro')
+      }
+    })
   }
 
   getInvoicesStatus() {
     this.StatoFatturaService.getStatus().subscribe(response => this.statoFattura = response.content);
   }
 
-  saveInvoices() {
-    this.FattureService.insertInvoices(this.newFattura).subscribe(response => console.log(response));
-    this.router.navigate(['fatturecliente/' + this.newFattura.cliente.id]);
+  setParams() {
+    this.route.params.subscribe(params => this.newFattura.cliente.id = params.idCliente);
   }
 
-  setParams() {
-    this.route.params.subscribe(params => this.newFattura.cliente.id = params.id);
+  saveInvoices() {
+    if (this.newFattura.data != '' && this.newFattura.importo != 0) {
+      if(!this.newFattura.id) {
+        this.FattureService.insertInvoices(this.newFattura).subscribe(response => console.log(response));
+      } else {
+        this.FattureService.updateInvoices(this.newFattura).subscribe(response => console.log(response));
+      }
+
+      this.router.navigate(['fatturecliente/' + this.newFattura.cliente.id]);
+      
+    } else {
+      alert('Compila tutti i campi!')
+    }
   }
+
 
 }

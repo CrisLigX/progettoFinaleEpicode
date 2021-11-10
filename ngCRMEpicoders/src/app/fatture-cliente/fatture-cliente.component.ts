@@ -39,8 +39,8 @@ export class FattureClienteComponent implements OnInit {
     this.router.navigate(['modificafattura/', obj.id]);
   }
 
-
-
-  removeInvoices(obj: Ifatture) {}
+  removeInvoices(obj: Ifatture) {
+    this.FattureService.removeInvoices(obj).subscribe(response => {console.log(response), this.getInvoices()})
+  }
 
 }

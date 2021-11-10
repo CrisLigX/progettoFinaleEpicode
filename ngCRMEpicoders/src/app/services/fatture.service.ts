@@ -41,12 +41,20 @@ export class FattureService {
     return this.http.get<any>(this.urlFattureCliente + id)
   }
 
+  getInvoicesById(id: number) {
+    return this.http.get<any>(this.urlFatture2 + id)
+  }
+
   insertInvoices(obj: InewFatture) {
     return this.http.post(environment.urlAPI + '/api/fatture', obj);
   }
   
-  updateClients(obj: Ifatture) {
+  updateInvoices(obj: InewFatture) {
     return this.http.put(this.urlFatture2 + obj.id, obj);
+  }
+
+  removeInvoices(obj: Ifatture) {
+    return this.http.delete(this.urlFatture2 + obj.id);
   }
   
 }

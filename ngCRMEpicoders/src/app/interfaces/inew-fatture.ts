@@ -1,4 +1,5 @@
 export interface InewFatture {
+    id?: number,
     data: string,
     numero: number,
     anno: number,

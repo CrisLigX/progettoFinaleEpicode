@@ -57,11 +57,11 @@ const routes = [
     component: FattureClienteComponent
   },
   {
-    path: 'modificafattura/:id',
+    path: 'modificafattura/:idFattura',
     component: InserisciFattureComponent
   },
   {
-    path: 'inseriscifattura/:id',
+    path: 'inseriscifattura/:idCliente',
     component: InserisciFattureComponent
   }
 ]
