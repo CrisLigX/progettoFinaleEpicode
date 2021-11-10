@@ -6,8 +6,16 @@
     </div>
 
     <div class="my-5 text-center">
-      <button type="button" class="btn btn-success btn-lg" [routerLink]="['/inseriscicliente']"
+      <button type="button" class="btn btn-success btn-lg mx-2" [routerLink]="['/inseriscicliente']"
         routerLinkActive='router-link-active'>Inserisci un nuovo cliente</button>
+
+      <label for="ricercaCliente" class="mx-1">Ricerca cliente per: </label>
+      <select name="tipologiaKey" [(ngModel)]="ricercaCliente.conditionList[0].key">
+        <option value="{{item.key}}" *ngFor="let item of keySearch">{{item.label}}</option>
+      </select>
+      <input type="text" class="mx-1" [(ngModel)]="ricercaCliente.conditionList[0].value" name="ricercaCliente">
+      <button type="button" class="btn btn-sm color1 mx-1 text-white" (click)="ricercaBy()">Effettua ricerca</button>
+      <button type="button" class="btn btn-sm color2 mx-1 text-white" (click)="svuotaRicercaBy()">Svuota ricerca</button>
     </div>
 
     <table class="table table-striped text-center">
@@ -40,14 +48,13 @@
 
   </div>
 
-  <div class="container float-start my-3">
+  <div class="container float-start my-3" *ngIf="mostraBtn">
     <h5>Visualizza elementi per pagina:</h5>
     <button type="button" class="btn btn-light btn-sm mx-1" (click)="getClients20()">20</button>
     <button type="button" class="btn btn-light btn-sm mx-1" (click)="getClients100()">100</button>
     <button type="button" class="btn btn-light btn-sm mx-1" (click)="getAllClients()">Tutti</button>
-</div>
+  </div>
 
-<div class="space-10"></div>
-
+  <div class="space-15"></div>
 
 </div>

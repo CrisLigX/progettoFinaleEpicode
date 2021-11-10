@@ -7,7 +7,7 @@
         </div>
 
         <div class="border p-3">
-            <h4>Ragione sociale</h4>
+            <h4>Ragione sociale</h4><span class="text-danger"><b>*campo obbligatorio</b></span>
             <hr>
             <input type="text" class="form-control" name="ragioneSociale" [(ngModel)]="NewClient.ragioneSociale">
         </div>
@@ -17,15 +17,16 @@
         <div class="row px-3">
 
             <div class="border p-3 col">
-                <h4>Partita IVA</h4>
+                <h4>Partita IVA</h4><span class="text-danger"><b>*campo obbligatorio</b></span>
                 <hr>
                 <input type="text" class="form-control" name="partitaIva" [(ngModel)]="NewClient.partitaIva">
             </div>
 
             <div class="border p-3 col">
-                <h4>Tipo Cliente</h4>
+                <h4>Tipo Cliente</h4><span class="text-danger"><b>*campo obbligatorio</b></span>
                 <hr>
                 <select class="form-select" [(ngModel)]="NewClient.tipoCliente"  name="tipoCliente">
+                    <option selected [ngValue]="NewClient.tipoCliente">{{NewClient.tipoCliente}}</option>
                     <option *ngFor="let item of tipoClienti">{{item}}</option>
                 </select>
             </div>
@@ -129,16 +130,17 @@
                 <h4>Provincia</h4>
                 <hr>
                 <select class="form-select" name="indirizzoSedeOperativaProvincia">
+                    <option selected [ngValue]="NewClient.indirizzoSedeOperativa.comune.provincia">{{NewClient.indirizzoSedeOperativa.comune.provincia.nome}}</option>
                     <option *ngFor="let item of province">{{item.nome}}</option>
                 </select>
                 <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire una nuova provincia</button>
             </div>
 
             <div class="border p-3 col">
-                <h4>Comune</h4>
+                <h4>Comune</h4><span class="text-danger"><b>*campo obbligatorio</b></span>
                 <hr>
                 <select class="form-select" [(ngModel)]="NewClient.indirizzoSedeOperativa.comune" name="indirizzoSedeOperativaComuneNome">
-                    <option selected>Seleziona provincia</option>
+                    <option selected [ngValue]="NewClient.indirizzoSedeOperativa.comune">{{NewClient.indirizzoSedeOperativa.comune.nome}}</option>
                     <option [ngValue]="item" *ngFor="let item of comuni">{{item.nome}}</option>
                 </select>
                 <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire un nuovo comune</button>
@@ -184,16 +186,17 @@
                 <h4>Provincia</h4>
                 <hr>
                 <select class="form-select" name="indirizzoSedeLegaleProvincia">
+                    <option selected [ngValue]="NewClient.indirizzoSedeLegale.comune.provincia">{{NewClient.indirizzoSedeLegale.comune.provincia.nome}}</option>
                     <option *ngFor="let item of province">{{item.nome}}</option>
                 </select>
                 <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire una nuova provincia</button>
             </div>
 
             <div class="border p-3 col">
-                <h4>Comune</h4>
+                <h4>Comune</h4><span class="text-danger"><b>*campo obbligatorio</b></span>
                 <hr>
                 <select class="form-select" [(ngModel)]="NewClient.indirizzoSedeLegale.comune" name="indirizzoSedeOperativaComuneNome">
-                    <option selected>Seleziona provincia</option>
+                    <option selected [ngValue]="NewClient.indirizzoSedeLegale.comune">{{NewClient.indirizzoSedeLegale.comune.nome}}</option>
                     <option [ngValue]="item" *ngFor="let item of comuni">{{item.nome}}</option>
                 </select>
                 <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire un nuovo comune</button>

@@ -48,4 +48,8 @@ export class ClientiService {
   updateClients(item: IClienti) {
     return this.http.put(this.urlClienti2 + item.id, item);
   }
+
+  ricercaCliente(item: any) {
+    return this.http.post<any>(environment.urlAPI + '/api/clienti/find', item);
+  }
 }

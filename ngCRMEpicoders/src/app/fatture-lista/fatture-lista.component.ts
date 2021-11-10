@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Ifatture } from '../interfaces/ifatture';
 import { FattureService } from '../services/fatture.service';
 
@@ -11,7 +12,7 @@ export class FattureListaComponent implements OnInit {
 
   invoices: Ifatture[] = [];
 
-  constructor(private FattureService: FattureService) { }
+  constructor(private FattureService: FattureService, private router: Router) { }
 
   ngOnInit(): void {
     this.getInvoices30();
@@ -35,6 +36,8 @@ export class FattureListaComponent implements OnInit {
 
   removeInvoices(obj: Ifatture) {}
 
-  selectInvoices(obj: Ifatture) {}
+  modificaFatture(obj: Ifatture) {
+    this.router.navigate(['modificafattura/', obj.id]);
+  }
 
 }

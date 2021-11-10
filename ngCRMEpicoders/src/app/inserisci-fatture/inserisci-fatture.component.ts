@@ -73,6 +73,10 @@ export class InserisciFattureComponent implements OnInit {
       alert('Compila tutti i campi!')
     }
   }
+
+  tornaIndietro() {
+    this.router.navigate(['fatture'])
+  }
   
 
 

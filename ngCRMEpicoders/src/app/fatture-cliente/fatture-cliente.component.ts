@@ -28,7 +28,6 @@ export class FattureClienteComponent implements OnInit {
 
   setParams() {
     this.route.params.subscribe(params => {this.idCliente = params.id, console.log(this.idCliente)});
-  
   }
 
   newFatture() {
@@ -41,6 +40,10 @@ export class FattureClienteComponent implements OnInit {
 
   removeInvoices(obj: Ifatture) {
     this.FattureService.removeInvoices(obj).subscribe(response => {console.log(response), this.getInvoices()})
+  }
+
+  tornaIndietro() {
+    this.router.navigate(['dettaglioclienti/' + this.idCliente])
   }
 
 }

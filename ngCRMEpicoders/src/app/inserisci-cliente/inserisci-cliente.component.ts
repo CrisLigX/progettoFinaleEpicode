@@ -89,17 +89,14 @@ ProvinciaSelezionata = "";
   }
 
   saveProduct() {
-    if (this.NewClient.ragioneSociale != '' && this.NewClient.partitaIva != '') {
+    if (this.NewClient.ragioneSociale != '' && this.NewClient.partitaIva != '' && this.NewClient.indirizzoSedeLegale.comune.nome != '' && this.NewClient.indirizzoSedeOperativa.comune.nome != '' && this.NewClient.tipoCliente != '') {
       if(!this.NewClient.id) {
         console.log('Cliente aggiunto!')
-        this.ClientsService.insertClients(this.NewClient).subscribe(response => console.log(response));
+        this.ClientsService.insertClients(this.NewClient).subscribe(response => this.router.navigate(['listautenti']));
       } else {
-        this.ClientsService.updateClients(this.NewClient).subscribe(response => console.log(response));
+        this.ClientsService.updateClients(this.NewClient).subscribe(response => this.router.navigate(['listautenti']));
         console.log('Cliente aggiornato!')
-      }
-
-      this.router.navigate(['listautenti']);
-      
+      }      
     } else {
       alert('Compila tutti i campi!')
     }
