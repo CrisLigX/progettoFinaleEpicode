@@ -20,7 +20,7 @@ export class InserisciFattureComponent implements OnInit {
     importo: 0,
     stato: {
       id: 1,
-      nome: "PAGATA"
+      nome: ""
     },
     cliente: {
       id: 1
@@ -41,7 +41,7 @@ export class InserisciFattureComponent implements OnInit {
   ngOnInit(): void {
     this.getInvoicesStatus();
     this.setParams();
-
+  
     this.route.params.subscribe(params => {
       if(params.idFattura) {
         this.FattureService.getInvoicesById(params.idFattura).subscribe(response => this.newFattura = response)
@@ -54,7 +54,7 @@ export class InserisciFattureComponent implements OnInit {
   }
 
   getInvoicesStatus() {
-    this.StatoFatturaService.getStatus().subscribe(response => this.statoFattura = response.content);
+    this.StatoFatturaService.getStatus().subscribe(response => {this.statoFattura = response.content; console.log(this.statoFattura)});
   }
 
   setParams() {
@@ -62,7 +62,7 @@ export class InserisciFattureComponent implements OnInit {
   }
 
   saveInvoices() {
-    if (this.newFattura.data != '' && this.newFattura.importo != 0) {
+    if (this.newFattura.data != '' && this.newFattura.importo != 0 && this.newFattura.stato.nome != '') {
       if(!this.newFattura.id) {
         this.FattureService.insertInvoices(this.newFattura).subscribe(response => {console.log(response), this.router.navigate(['fatturecliente/' + this.newFattura.cliente.id])});
       } else {

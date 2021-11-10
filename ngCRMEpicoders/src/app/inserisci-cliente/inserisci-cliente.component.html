@@ -129,7 +129,7 @@
             <div class="border p-3 col">
                 <h4>Provincia</h4>
                 <hr>
-                <select class="form-select" name="indirizzoSedeOperativaProvincia">
+                <select (change)="changeComuni()" class="form-select" name="indirizzoSedeOperativaProvincia" [(ngModel)]="ProvinciaSelezionataOP">>
                     <option selected [ngValue]="NewClient.indirizzoSedeOperativa.comune.provincia">{{NewClient.indirizzoSedeOperativa.comune.provincia.nome}}</option>
                     <option *ngFor="let item of province">{{item.nome}}</option>
                 </select>
@@ -141,7 +141,7 @@
                 <hr>
                 <select class="form-select" [(ngModel)]="NewClient.indirizzoSedeOperativa.comune" name="indirizzoSedeOperativaComuneNome">
                     <option selected [ngValue]="NewClient.indirizzoSedeOperativa.comune">{{NewClient.indirizzoSedeOperativa.comune.nome}}</option>
-                    <option [ngValue]="item" *ngFor="let item of comuni">{{item.nome}}</option>
+                    <option [ngValue]="item" *ngFor="let item of comuniOp">{{item.nome}}</option>
                 </select>
                 <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire un nuovo comune</button>
             </div>
@@ -185,7 +185,7 @@
             <div class="border p-3 col">
                 <h4>Provincia</h4>
                 <hr>
-                <select class="form-select" name="indirizzoSedeLegaleProvincia">
+                <select (change)="changeComuni()" class="form-select" name="indirizzoSedeLegaleProvincia" [(ngModel)]="ProvinciaSelezionataLEG">
                     <option selected [ngValue]="NewClient.indirizzoSedeLegale.comune.provincia">{{NewClient.indirizzoSedeLegale.comune.provincia.nome}}</option>
                     <option *ngFor="let item of province">{{item.nome}}</option>
                 </select>

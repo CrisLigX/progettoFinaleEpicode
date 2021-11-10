@@ -9,7 +9,7 @@
         <div class="row px-3">
 
             <div class="border p-3 col">
-                <h4>Data</h4>
+                <h4>Data</h4><span class="text-danger"><b>*campo obbligatorio</b></span>
                 <hr>
                 <input type="date" class="form-control" name="data" [(ngModel)]="newFattura.data">
             </div>
@@ -33,17 +33,17 @@
         <div class="row px-3">
 
             <div class="border p-3 col">
-                <h4>Importo</h4>
+                <h4>Importo</h4><span class="text-danger"><b>*campo obbligatorio</b></span>
                 <hr>
                 <input type="number" class="form-control" name="importo" [(ngModel)]="newFattura.importo">
             </div>
 
 
             <div class="border p-3 col">
-                <h4>Stato fattura</h4>
+                <h4>Stato fattura</h4><span class="text-danger"><b>*campo obbligatorio</b></span>
                 <hr>
                 <select class="form-select" [(ngModel)]="newFattura.stato" name="statoFattura">
-                    <option selected>Stato fattura</option>
+                    <option selected disabled [ngValue]="newFattura.stato">{{newFattura.stato.nome}}</option>
                     <option [ngValue]="item" *ngFor="let item of statoFattura">{{item.nome}}</option>
                 </select>
             </div>

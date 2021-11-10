@@ -23,7 +23,7 @@ export class FattureClienteComponent implements OnInit {
   }
 
   getInvoices() {
-    this.route.params.subscribe(params => this.FattureService.getInvoicesByClient(params.id).subscribe(response => {this.invoices = response.content, this.result = this.invoices[0].cliente.ragioneSociale}))
+    this.route.params.subscribe(params => this.FattureService.getInvoicesByClient(params.id).subscribe(response => {this.invoices = response.content; this.result = this.invoices[0].cliente.ragioneSociale}))
   }
 
   setParams() {

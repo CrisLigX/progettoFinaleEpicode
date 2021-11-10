@@ -31,7 +31,7 @@ export class ListaUtentiComponent implements OnInit {
       label: 'Ragione sociale'
     },
     {
-      key: 'partitaIVA',
+      key: 'partitaIva',
       label: 'Partita IVA'
     },
     {

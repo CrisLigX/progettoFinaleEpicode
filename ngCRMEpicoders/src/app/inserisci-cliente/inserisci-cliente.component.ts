@@ -57,10 +57,13 @@ export class InserisciClienteComponent implements OnInit {
 
 tipoClienti = [];
 comuni: Icomuni[] = [];
+comuniOp: Icomuni[] = [];
+comuniFilter: Icomuni[] = [];
 province: Iprovince[] = [];
 Btx01 = 'Salva cliente'
 Btx02 = 'Inserisci un nuovo cliente'
-ProvinciaSelezionata = "";
+ProvinciaSelezionataLEG = '';
+ProvinciaSelezionataOP = '';
 
   constructor(
     private ClientsService: ClientiService,
@@ -107,7 +110,7 @@ ProvinciaSelezionata = "";
   }
 
   GetComuni() {
-    this.ComuniService.getAllComuni().subscribe(response => this.comuni = response.content);
+    this.ComuniService.getAllComuni().subscribe(response => {this.comuni = response.content, this.comuniOp = response.content, this.comuniFilter = response.content});
   }
 
   GetProvince() {
@@ -116,6 +119,11 @@ ProvinciaSelezionata = "";
 
   CambioProvincia(obj: Iprovince) {
     this.comuni = this.ComuniService.comuneDaProvincia(obj);
+  }
+
+  changeComuni() {
+    this.comuni = this.comuniFilter.filter(element => element.provincia.nome == this.ProvinciaSelezionataLEG)
+    this.comuniOp = this.comuniFilter.filter(element => element.provincia.nome == this.ProvinciaSelezionataOP)
   }
 
 }
