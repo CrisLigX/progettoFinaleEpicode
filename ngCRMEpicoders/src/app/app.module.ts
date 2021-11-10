@@ -51,6 +51,10 @@ const routes = [
     path: 'fatture',
     component: FattureListaComponent
   },
+  {
+    path: 'fatturecliente/:id',
+    component: FattureClienteComponent
+  },
 
 
 ]

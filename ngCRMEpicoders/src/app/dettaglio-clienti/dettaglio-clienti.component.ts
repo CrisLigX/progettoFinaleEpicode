@@ -66,4 +66,8 @@ export class DettaglioClientiComponent implements OnInit {
     this.ClientsService.deleteClients(this.selClients).subscribe(response => {console.log(response), console.log('Utente eliminato'), this.router.navigate(['listautenti'])})
   }
 
+  selectInvoicesClients(): void {
+    this.router.navigate(['fatturecliente', this.selClients.id,]);
+  }
+
 }

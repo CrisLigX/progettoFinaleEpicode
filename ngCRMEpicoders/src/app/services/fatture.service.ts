@@ -11,7 +11,8 @@ export class FattureService {
 
 
   urlFatture = environment.urlAPI + '/api/fatture?page=0&size=1500&sort=id,DESC';
-  urlFatture2 = environment.urlAPI + '/api/clienti/';
+  urlFatture2 = environment.urlAPI + '/api/fatture/';
+  urlFattureCliente = environment.urlAPI + '/api/fatture/cliente/';
 
   constructor(private http: HttpClient) { }
 
@@ -33,6 +34,10 @@ export class FattureService {
 
   getInvoicesAll() {
     return this.http.get<Iresponse>(environment.urlAPI + '/api/fatture?page=0&size=1500&sort=id,DESC');
+  }
+
+  getInvoicesByClient(id: number) {
+    return this.http.get<any>(this.urlFattureCliente + id)
   }
   
 }

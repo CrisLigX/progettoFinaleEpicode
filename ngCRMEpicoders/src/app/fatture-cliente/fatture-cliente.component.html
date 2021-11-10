@@ -1,1 +1,51 @@
-<p>fatture-cliente works!</p>
+<div class="sfondofixed">
+    <div class="container border border-primary shadow-lg biancoTrasp">
+
+        <div class="container text-center text-white py-3 my-4 color1">
+            <h1>Queste sono le fatture di <strong>{{result}}</strong></h1>
+            <hr class="bg-white">
+            <button type="button" class="btn btn-success mx-2" (click)="newFatture()">Inserisci fatture</button>
+        </div>
+
+        <table class="table table-striped text-center">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Anno</th>
+                <th scope="col">Importo</th>
+                <th scope="col">Stato</th>
+                <th scope="col">Cliente</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of invoices; index as i">
+                <th scope="row">{{ i + 1 }}</th>
+                <th>{{ item.id }}</th>
+                <td>{{ item.numero }}</td>
+                <td>{{ item.anno}}</td>
+                <td>{{ item.importo | currency: "EUR" }}</td>
+                <td class="fattura{{item.stato.id}}">{{ item.stato.nome }}</td>
+                <td>{{ item.cliente.ragioneSociale }}</td>
+                <td>
+                  <!-- <button type="button" class="btn btn-danger btn-sm" (click)="removeInvoices(item)">Elimina</button>
+                  <button type="button" class="btn btn-primary btn-sm mx-2" (click)="selectInvoices(item)">Dettaglio</button> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+    </div>
+
+    <!-- <div class="container float-start my-3">
+        <h5>Visualizza elementi per pagina:</h5>
+        <button type="button" class="btn btn-light btn-sm mx-1" (click)="getInvoices30()">30</button>
+        <button type="button" class="btn btn-light btn-sm mx-1" (click)="getInvoices70()">70</button>
+        <button type="button" class="btn btn-light btn-sm mx-1" (click)="getInvoices120()">120</button>
+        <button type="button" class="btn btn-light btn-sm mx-1" (click)="getInvoicesAll()">Tutti</button>
+    </div> -->
+
+    <div class="space-10"></div>
+
+</div>
