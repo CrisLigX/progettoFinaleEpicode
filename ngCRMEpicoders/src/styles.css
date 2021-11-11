@@ -20,6 +20,7 @@
     padding-top: 10rem;
 }
 
+
 .bdr-btm-white {
     border-bottom: 2pt solid white;
 }
@@ -44,6 +45,10 @@
     height: 15rem;
 }
 
+.space-20 {
+    height: 20rem;
+}
+
 .biancoTrasp {
     background-color: rgba(235, 235, 235, .5);
 }
@@ -56,4 +61,13 @@
 .fattura2 {
     font-weight: bold;
     color: rgb(145, 0, 0);
+}
+
+.sfondofixed2 {
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url("assets/img/wallpapers02.jpg");
+    height: 100vh;
 }

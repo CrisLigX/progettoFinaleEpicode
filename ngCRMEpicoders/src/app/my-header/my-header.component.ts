@@ -17,12 +17,6 @@ export class MyHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.Username = this.LoginService.returnUsername();    
-    if (this.Username == '') {
-      this.statelogin = 'Login';
-    } else {
-      this.statelogin = 'Logout'
-    }
-    this.LoginService.localtoken();
   }
 
   effettuaLogout() {

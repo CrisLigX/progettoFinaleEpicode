@@ -38,7 +38,7 @@ export class FattureService {
   }
 
   getInvoicesByClient(id: number) {
-    return this.http.get<any>(this.urlFattureCliente + id)
+    return this.http.get<Iresponse>(this.urlFattureCliente + id)
   }
 
   getInvoicesById(id: number) {

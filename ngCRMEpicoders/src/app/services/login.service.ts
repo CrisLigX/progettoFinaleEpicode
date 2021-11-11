@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { ILogin } from '../interfaces/i-login';
 import { ILoginOk } from '../interfaces/i-login-ok';
 import { Iresponse } from '../interfaces/iresponse';
+import { RouteGuardService } from './route-guard.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class LoginService {
 
   urlLogin = environment.urlAPI + '/api/auth/login';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private RouteGuard: RouteGuardService) { }
 
   getUsersLogin(obj: ILogin) {
     return this.http.post<ILoginOk>(this.urlLogin, obj);

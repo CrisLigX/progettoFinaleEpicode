@@ -6,7 +6,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 })
 export class RouteGuardService {
 
-  login: boolean = true;
+  login: boolean = false;
 
   constructor() { }
 

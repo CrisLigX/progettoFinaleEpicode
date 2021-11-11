@@ -1,36 +1,42 @@
-  <div class="sfondofixed">
-    <div class="container border border-primary shadow-lg biancoTrasp">
+<div class="sfondofixed2">
 
-        <div class="text-center p-3">
-            <img src="assets/img/crmepicoders_logo4.svg" width="570px" alt="">
-            <h3 class="m-5">Benvenuti sul CRM proprietario di Epicode School.</h3>
-            <p>Effettua il login per continuare 👇🏻</p>
-        </div>
+  <div class="space-10"></div>
 
-        <form class="form-signin container">
+  <div class="container border border-primary shadow-lg biancoTrasp">
 
-            <label for="inputEmail" class="sr-only">Username</label>
-            <input type="email" name="loginEmail" [(ngModel)]="loginUser.username" id="inputEmail" class="form-control my-3" placeholder="Username" required autofocus>
-
-            <div>
-              <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                  <a href="javascript:void(0)" (click)="showpsw()"><div class="input-group-text">👁</div></a>
-                </div>
-                <input type="{{typepsw}}" class="form-control" [(ngModel)]="loginUser.password" [ngModelOptions]="{standalone: true}" id="inlineFormInputGroup" placeholder="Password">
-              </div>
-
-          </div>
-
-            <button class="btn btn-lg btn-primary btn-block my-3" (click)="signin()">🔐 Effettua login</button>
-
-            <button class="btn btn-lg btn-secondary btn-block my-3" (click)="signup()">Registrati 🔑</button>
-
-          </form>
-
+    <div class="text-center p-3">
+      <img src="assets/img/crmepicoders_logo4.svg" width="570px" alt="">
+      <h3 class="m-5">Benvenuti sul CRM proprietario di Epicode School.</h3>
+      <p>Effettua il login per continuare 👇🏻</p>
     </div>
 
-    <div class="space-10"></div>
+    <form class="form-signin container">
+
+      <label for="inputEmail" class="sr-only">Username</label>
+      <input type="email" name="loginEmail" [(ngModel)]="loginUser.username" id="inputEmail" class="form-control my-3"
+        placeholder="Username" required autofocus>
+
+      <div>
+        <div class="input-group mb-2">
+          <div class="input-group-prepend">
+            <a href="javascript:void(0)" (click)="showpsw()">
+              <div class="input-group-text">👁</div>
+            </a>
+          </div>
+          <input type="{{typepsw}}" class="form-control" [(ngModel)]="loginUser.password"
+            [ngModelOptions]="{standalone: true}" id="inlineFormInputGroup" placeholder="Password">
+        </div>
+
+      </div>
+
+      <button class="btn btn-lg btn-primary btn-block my-3" (click)="signin()">🔐 Effettua login</button>
+
+      <button class="btn btn-lg btn-secondary btn-block my-3" (click)="signup()">Registrati 🔑</button>
+
+    </form>
+
+  </div>
+
+  <div class="space-10"></div>
 
 </div>
-  
