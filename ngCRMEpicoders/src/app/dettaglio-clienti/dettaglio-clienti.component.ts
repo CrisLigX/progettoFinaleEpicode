@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IClienti } from '../interfaces/iclienti';
 import { ClientiService } from '../services/clienti.service';
+import { LoginService } from '../services/login.service';
 
 
 @Component({
@@ -11,7 +12,9 @@ import { ClientiService } from '../services/clienti.service';
 })
 export class DettaglioClientiComponent implements OnInit {
 
-  constructor(private ClientsService: ClientiService, private router: Router, private route: ActivatedRoute) {}
+  userAdmin: boolean = true;
+
+  constructor(private ClientsService: ClientiService, private router: Router, private route: ActivatedRoute, private LoginService: LoginService) {}
 
   selClients: IClienti = {
     ragioneSociale: "",
@@ -55,7 +58,8 @@ export class DettaglioClientiComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => { this.ClientsService.getClientsById(params.id).subscribe(response => {console.log(response); this.selClients = response}) });
+    this.route.params.subscribe(params => { this.ClientsService.getClientsById(params.id).subscribe(response => {console.log(response); this.selClients = response})});
+    this.userAdmin = this.LoginService.readUserType();
   }
 
   modifica() {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  userAdmin: boolean = true;
+
+  constructor(private LoginService: LoginService) { }
 
   ngOnInit(): void {
+    this.userAdmin = this.LoginService.readUserType();
   }
 
 }

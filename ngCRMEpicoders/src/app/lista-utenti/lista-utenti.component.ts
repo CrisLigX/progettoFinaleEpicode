@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IClienti } from '../interfaces/iclienti';
 import { ClientiService } from '../services/clienti.service';
+import { LoginService } from '../services/login.service';
 
 
 @Component({
@@ -12,6 +13,8 @@ import { ClientiService } from '../services/clienti.service';
 export class ListaUtentiComponent implements OnInit {
 
   clients: IClienti[] = [];
+
+  userAdmin: boolean = true;
 
   clientsUpd: any;
 
@@ -51,11 +54,12 @@ export class ListaUtentiComponent implements OnInit {
   mostraBtn: boolean = true;
 
 
-  constructor(private ClientiService: ClientiService, private router: Router) {
+  constructor(private ClientiService: ClientiService, private router: Router, private LoginService: LoginService) {
   }
 
   ngOnInit(): void {
     this.getClients20();
+    this.userAdmin = this.LoginService.readUserType();
   }
 
   removeClient(item: IClienti) {

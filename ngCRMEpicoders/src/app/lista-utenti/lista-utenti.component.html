@@ -7,8 +7,7 @@
     </div>
 
     <div class="my-5 text-center">
-      <button type="button" class="btn btn-success btn-lg mx-2" [routerLink]="['/inseriscicliente']"
-        routerLinkActive='router-link-active'>Inserisci un nuovo cliente</button>
+      <button type="button" class="btn btn-success btn-lg mx-2" *ngIf="userAdmin" [routerLink]="['/inseriscicliente']" routerLinkActive='router-link-active'>Inserisci un nuovo cliente</button>
 
       <label for="ricercaCliente" class="mx-1">Ricerca cliente per: </label>
       <select name="tipologiaKey" [(ngModel)]="ricercaCliente.conditionList[0].key">
@@ -40,7 +39,7 @@
           <td>{{ item.nomeContatto}}</td>
           <td>{{ item.cognomeContatto }}</td>
           <td>
-            <button type="button" class="btn btn-danger btn-sm" (click)="removeClient(item)">Elimina</button>
+            <button type="button" class="btn btn-danger btn-sm" *ngIf="userAdmin" (click)="removeClient(item)">Elimina</button>
             <button type="button" class="btn btn-primary btn-sm mx-2" (click)="selectClient(item)">Dettaglio</button>
           </td>
         </tr>

@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
         alert('Bentornato ' + this.loginOk.username + ' 😁'),
         this.LoginService.saveToken(this.loginOk.accessToken),
         this.LoginService.saveUsername(this.loginOk.username),
+        this.LoginService.saveTypeUser(this.loginOk.roles[0])
         this.router.navigate(['home'])},
       error => alert('Username e/o password sbagliate!'));
   }

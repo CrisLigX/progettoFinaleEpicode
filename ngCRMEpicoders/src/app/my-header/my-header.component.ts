@@ -12,11 +12,14 @@ export class MyHeaderComponent implements OnInit {
 
   statelogin: string = '';
   Username: string = '';
+  userAdmin: boolean = true;
 
   constructor(private RouteGuardService: RouteGuardService, private router: Router, private LoginService: LoginService) { }
 
   ngOnInit(): void {
-    this.Username = this.LoginService.returnUsername();    
+    this.Username = this.LoginService.returnUsername();
+    this.userAdmin = this.LoginService.readUserType();
+    console.log(this.userAdmin);
   }
 
   effettuaLogout() {

@@ -7,7 +7,7 @@
             <h1>Queste sono le fatture di <strong>{{result}}</strong></h1>
             <hr class="bg-white">
             <button type="button" class="btn btn-light mx-2" (click)="tornaIndietro()">Torna indietro</button>
-            <button type="button" class="btn btn-success mx-2" (click)="newFatture()">Inserisci fatture</button>
+            <button type="button" class="btn btn-success mx-2" *ngIf="userAdmin" (click)="newFatture()">Inserisci fatture</button>
         </div>
 
         <table class="table table-striped text-center">
@@ -32,8 +32,8 @@
                 <td class="fattura{{item.stato.id}}">{{ item.stato.nome }}</td>
                 <td>{{ item.cliente.ragioneSociale }}</td>
                 <td>
-                  <button type="button" class="btn btn-danger btn-sm" (click)="removeInvoices(item)">Elimina</button>
-                  <button type="button" class="btn btn-warning btn-sm mx-2" (click)="modificaFatture(item)">Modifica</button>
+                  <button type="button" class="btn btn-danger btn-sm" *ngIf="userAdmin" (click)="removeInvoices(item)">Elimina</button>
+                  <button type="button" class="btn btn-warning btn-sm mx-2" *ngIf="userAdmin" (click)="modificaFatture(item)">Modifica</button>
                 </td>
               </tr>
             </tbody>

@@ -29,7 +29,15 @@ export class LoginService {
     this.localtoken();
   }
 
-  localtoken () {
+  saveTypeUser(tkn: string): void {
+    localStorage.setItem('userType', tkn)
+  }
+
+  readUserType(): any {
+    return localStorage.getItem('userType') === 'ROLE_ADMIN';
+  }
+
+  localtoken() {
     let toknsv = localStorage.getItem('token');
     if (toknsv != null) {
       this.token = toknsv;

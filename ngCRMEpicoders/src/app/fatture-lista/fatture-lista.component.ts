@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Ifatture } from '../interfaces/ifatture';
 import { FattureService } from '../services/fatture.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-fatture-lista',
@@ -12,10 +13,13 @@ export class FattureListaComponent implements OnInit {
 
   invoices: Ifatture[] = [];
 
-  constructor(private FattureService: FattureService, private router: Router) { }
+  userAdmin: boolean = true;
+
+  constructor(private FattureService: FattureService, private router: Router, private LoginService: LoginService) { }
 
   ngOnInit(): void {
     this.getInvoices30();
+    this.userAdmin = this.LoginService.readUserType();
   }
 
   getInvoices30() {

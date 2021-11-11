@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ifatture } from '../interfaces/ifatture';
 import { FattureService } from '../services/fatture.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-fatture-cliente',
@@ -15,11 +16,14 @@ export class FattureClienteComponent implements OnInit {
   result: string = "";
   idCliente = 0;
 
-  constructor(private FattureService: FattureService, private route: ActivatedRoute, private router: Router) { }
+  userAdmin: boolean = true;
+
+  constructor(private FattureService: FattureService, private route: ActivatedRoute, private router: Router, private LoginService: LoginService) { }
 
   ngOnInit(): void {
     this.getInvoices();
     this.setParams();
+    this.userAdmin = this.LoginService.readUserType();
   }
 
   getInvoices() {
