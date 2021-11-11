@@ -1,0 +1,44 @@
+<div class="sfondofixed">
+    <div class="container border border-primary shadow-lg biancoTrasp">
+
+        <div class="text-center p-3">
+            <img src="assets/img/crmepicoders_logo4.svg" width="570px" alt="">
+            <h3 class="m-5">Registrati per poter accedere al nostro gestionale 👇🏻</h3>
+        </div>
+
+        <form class="form-signin container">
+
+            <label for="inputEmail" class="sr-only">Username</label>
+            <input type="email" name="loginUsername" [(ngModel)]="userSignUp.username" id="inputEmail"
+                class="form-control my-3" placeholder="Username" required autofocus>
+
+            <label for="inputEmail" class="sr-only">Indirizzo email</label>
+            <input type="email" name="loginEmail" [(ngModel)]="userSignUp.email" id="inputEmail"
+                class="form-control my-3" placeholder="Indirizzo email" required autofocus>
+
+            <div>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <a href="javascript:void(0)" (click)="showpsw()"><div class="input-group-text">👁</div></a>
+                  </div>
+                  <input type="{{typepsw}}" name="loginPassword" class="form-control" [(ngModel)]="userSignUp.password" [ngModelOptions]="{standalone: true}" id="inlineFormInputGroup" placeholder="Password">
+                </div>
+            </div>
+
+            <label for="inputEmail" class="sr-only">Nome</label>
+            <input type="email" name="loginNome" [(ngModel)]="userSignUp.nome" id="inputEmail" class="form-control my-3" placeholder="Nome" required autofocus>
+
+            <label for="inputEmail" class="sr-only">Cognome</label>
+            <input type="email" name="loginCognome" [(ngModel)]="userSignUp.cognome" id="inputEmail" class="form-control my-3" placeholder="Cognome" required autofocus>
+
+            <button class="btn btn-lg btn-info btn-block my-3" (click)="signup()">Registrati 🔑</button>
+            <button class="btn btn-lg btn-secondary btn-block my-3" (click)="login()">Torna a login</button>
+
+
+        </form>
+
+    </div>
+
+    <div class="space-10"></div>
+
+</div>

@@ -6,22 +6,28 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { LoginService } from './services/login.service';
 
 @Injectable()
 export class MyInterceptorInterceptor implements HttpInterceptor {
 
-  token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTYzNjM3OTY2MiwiZXhwIjoxNjM3MjQzNjYyfQ.WaxxzS6R7PaZLxCWbVfVayYcR2Ad1Id7MtYtGAgnBOGsAhOU7WKKm7TPjUt7Zen6DCNXzXpXIq7-psWHunmeeA'
+  token = ''
+
   tenant = 'fe_0421';
 
-  constructor() {}
+  constructor(private LoginService: LoginService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     
     let myRequest: HttpRequest<any> = request;
     myRequest= request.clone({headers: request.headers
-      .set('Authorization', 'Bearer ' + this.token)
+      .set('Authorization', 'Bearer ' + this.LoginService.returnToken())
       .set('X-TENANT-ID', this.tenant)})
     
     return next.handle(myRequest);
+
+
   }
+
+
 }

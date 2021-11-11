@@ -16,53 +16,74 @@ import { FattureClienteComponent } from './fatture-cliente/fatture-cliente.compo
 import { InserimentoProvinceComuniComponent } from './inserimento-province-comuni/inserimento-province-comuni.component';
 import { FattureListaComponent } from './fatture-lista/fatture-lista.component';
 import { InserisciFattureComponent } from './inserisci-fatture/inserisci-fatture.component';
+import { RouteGuardService } from './services/route-guard.service';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home'
+    redirectTo: 'login'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
   },
   {
     path: 'home',
-    component: HomePageComponent
+    component: HomePageComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: 'listautenti',
-    component: ListaUtentiComponent
+    component: ListaUtentiComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: 'dettaglioclienti/:id',
-    component: DettaglioClientiComponent
+    component: DettaglioClientiComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: 'inseriscicliente',
-    component: InserisciClienteComponent
+    component: InserisciClienteComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: 'modificacliente/:id',
-    component: InserisciClienteComponent
+    component: InserisciClienteComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: 'inserimentoprovcom',
-    component: InserimentoProvinceComuniComponent
+    component: InserimentoProvinceComuniComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: 'fatture',
-    component: FattureListaComponent
+    component: FattureListaComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: 'fatturecliente/:id',
-    component: FattureClienteComponent
+    component: FattureClienteComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: 'modificafattura/:idFattura',
-    component: InserisciFattureComponent
+    component: InserisciFattureComponent,
+    canActivate: [RouteGuardService]
   },
   {
     path: 'inseriscifattura/:idCliente',
-    component: InserisciFattureComponent
-  }
+    component: InserisciFattureComponent,
+    canActivate: [RouteGuardService]
+  },
 ]
 
 @NgModule({
@@ -78,6 +99,8 @@ const routes = [
     InserimentoProvinceComuniComponent,
     FattureListaComponent,
     InserisciFattureComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

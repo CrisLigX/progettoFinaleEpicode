@@ -9,7 +9,7 @@ import { Iresponse } from '../interfaces/iresponse';
 })
 export class ProvinceService {
 
-  urlProvince = environment.urlAPI + '/api/province';
+  urlProvince = environment.urlAPI + '/api/province?size=100&sort=nome,ASC';
 
   constructor(private http: HttpClient) { }
 

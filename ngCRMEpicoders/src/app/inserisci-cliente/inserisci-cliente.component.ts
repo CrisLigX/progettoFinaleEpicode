@@ -74,6 +74,9 @@ ProvinciaSelezionataOP = '';
 
   ngOnInit(): void {
 
+    this.NewClient.dataInserimento = Date.now().toString()
+    this.NewClient.dataUltimoContatto = Date.now().toString()
+
     this.route.params.subscribe(params => {
       if(params.id) {
         this.ClientsService.getClientsById(params.id).subscribe(response => this.NewClient = response)
@@ -95,6 +98,7 @@ ProvinciaSelezionataOP = '';
     if (this.NewClient.ragioneSociale != '' && this.NewClient.partitaIva != '' && this.NewClient.indirizzoSedeLegale.comune.nome != '' && this.NewClient.indirizzoSedeOperativa.comune.nome != '' && this.NewClient.tipoCliente != '') {
       if(!this.NewClient.id) {
         console.log('Cliente aggiunto!')
+        console.log(this.NewClient)
         this.ClientsService.insertClients(this.NewClient).subscribe(response => this.router.navigate(['listautenti']));
       } else {
         this.ClientsService.updateClients(this.NewClient).subscribe(response => this.router.navigate(['listautenti']));

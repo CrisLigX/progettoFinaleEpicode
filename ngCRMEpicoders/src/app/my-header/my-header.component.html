@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark color1 shadow bdr-btm-white">
     <div class="container">
       <a class="navbar-brand" href="javascript:void(0)">
-        <img src="assets\img\crmepicoders_logo.svg" width="240px" alt="Geek Store">
+        <img src="assets\img\crmepicoders_logo.svg" [routerLink] = "['/home']" width="240px" alt="Geek Store">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="javascript:void(0)" [routerLink] = "['/']" routerLinkActive='router-link-active'>Home</a>
+            <a class="nav-link" href="javascript:void(0)" [routerLink] = "['/home']" routerLinkActive='router-link-active'>Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" [routerLink] = "['/listautenti']" routerLinkActive='router-link-active'>Clienti</a>
@@ -22,7 +22,13 @@
           <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" [routerLink] = "['/fatture']" routerLinkActive='router-link-active'>Fatture</a>
           </li>
+
+          <li class="nav-item float-end">
+            <a class="nav-link" href="javascript:void(0)" (click)="effettuaLogout()">{{statelogin}}</a>
+          </li>
+
         </ul>
+
       </div>
     </div>
     </nav>

@@ -11,7 +11,7 @@ import { Iresponse } from '../interfaces/iresponse';
 })
 export class ComuniService {
 
-  urlComuni = environment.urlAPI + '/api/comuni';
+  urlComuni = environment.urlAPI + '/api/comuni?page=0&size=1000&sort=nome,ASC';
 
   comuniFilter: Icomuni[]= [];
 
