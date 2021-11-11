@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.imgLogo {
+    width: 470px;
+}
+
 .color1 {
     background-color: #5A3FAF;
 }
@@ -69,5 +73,19 @@
     background-size: cover;
     background-attachment: fixed;
     background-image: url("assets/img/wallpapers02.jpg");
-    height: 100vh;
+}
+
+.LinkBold {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 577px) {
+    .imgLogo {
+        width: 570px;
+}
+
+    .sfondofixed2 {
+        height: 100vh;
+    }
 }

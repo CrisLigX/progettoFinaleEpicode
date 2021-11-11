@@ -26,7 +26,7 @@
                 <td>{{ item.anno}}</td>
                 <td>{{ item.importo | currency: "EUR" }}</td>
                 <td class="fattura{{item.stato.id}}">{{ item.stato.nome }}</td>
-                <td>{{ item.cliente.ragioneSociale }}</td>
+                <td><a href="javascript:void(0)" (click)="showCliente(item)" class="LinkBold">{{ item.cliente.ragioneSociale }}</a></td>
                 <td>
                   <button type="button" class="btn btn-danger btn-sm" *ngIf="userAdmin" (click)="removeInvoices(item)">Elimina</button>
                   <button type="button" class="btn btn-primary btn-sm mx-2" (click)="modificaFatture(item)">Dettaglio</button>

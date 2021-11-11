@@ -7,6 +7,7 @@
             <hr class="bg-white">
             <button type="button" class="btn btn-danger mx-2" *ngIf="userAdmin" (click)="eliminaUtente()">Elimina cliente</button>
             <button type="button" class="btn btn-light mx-2" (click)="selectInvoicesClients()">Visualizza fatture</button>
+            <button type="button" class="btn btn-success mx-2" *ngIf="userAdmin" (click)="newFatture()">Inserisci fattura</button>
             <button type="button" class="btn btn-warning mx-2" *ngIf="userAdmin" (click)="modifica()">Modifica cliente</button>
         </div>
 

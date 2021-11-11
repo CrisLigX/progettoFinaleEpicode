@@ -58,7 +58,7 @@ export class DettaglioClientiComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => { this.ClientsService.getClientsById(params.id).subscribe(response => {console.log(response); this.selClients = response})});
+    this.route.params.subscribe(params => { this.ClientsService.getClientsById(params.id).subscribe(response => this.selClients = response)});
     this.userAdmin = this.LoginService.readUserType();
   }
 
@@ -72,6 +72,10 @@ export class DettaglioClientiComponent implements OnInit {
 
   selectInvoicesClients(): void {
     this.router.navigate(['fatturecliente', this.selClients.id,]);
+  }
+
+  newFatture() {
+    this.router.navigate(['inseriscifattura/' + this.selClients.id]);
   }
 
 }

@@ -54,7 +54,7 @@ export class InserisciFattureComponent implements OnInit {
   }
 
   getInvoicesStatus() {
-    this.StatoFatturaService.getStatus().subscribe(response => {this.statoFattura = response.content; console.log(this.statoFattura)});
+    this.StatoFatturaService.getStatus().subscribe(response => this.statoFattura = response.content);
   }
 
   setParams() {
@@ -64,9 +64,9 @@ export class InserisciFattureComponent implements OnInit {
   saveInvoices() {
     if (this.newFattura.data != '' && this.newFattura.importo != 0 && this.newFattura.stato.nome != '') {
       if(!this.newFattura.id) {
-        this.FattureService.insertInvoices(this.newFattura).subscribe(response => {console.log(response), this.router.navigate(['fatturecliente/' + this.newFattura.cliente.id])});
+        this.FattureService.insertInvoices(this.newFattura).subscribe(response => this.router.navigate(['fatturecliente/' + this.newFattura.cliente.id]));
       } else {
-        this.FattureService.updateInvoices(this.newFattura).subscribe(response => {console.log(response), this.router.navigate(['fatturecliente/' + this.newFattura.cliente.id])});
+        this.FattureService.updateInvoices(this.newFattura).subscribe(response => this.router.navigate(['fatturecliente/' + this.newFattura.cliente.id]));
       }
       
     } else {
@@ -75,7 +75,7 @@ export class InserisciFattureComponent implements OnInit {
   }
 
   tornaIndietro() {
-    this.router.navigate(['fatture'])
+    history.back()
   }
   
 

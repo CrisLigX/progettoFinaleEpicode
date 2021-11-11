@@ -19,7 +19,6 @@ export class MyHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.Username = this.LoginService.returnUsername();
     this.userAdmin = this.LoginService.readUserType();
-    console.log(this.userAdmin);
   }
 
   effettuaLogout() {

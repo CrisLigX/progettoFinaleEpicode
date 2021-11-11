@@ -38,10 +38,15 @@ export class FattureListaComponent implements OnInit {
     this.FattureService.getInvoicesAll().subscribe(response => this.invoices = response.content);
   }
 
-  removeInvoices(obj: Ifatture) {}
+  removeInvoices(obj: Ifatture) { }
 
   modificaFatture(obj: Ifatture) {
     this.router.navigate(['modificafattura/', obj.id]);
   }
 
+  showCliente(obj: Ifatture) {
+    if (obj.cliente.id) {
+      this.router.navigate(['dettaglioclienti/', + obj.cliente.id])
+    }
+  }
 }
