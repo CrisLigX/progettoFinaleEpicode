@@ -6,6 +6,16 @@
             <h1>Elenco fatture CRM Epicoders</h1>
         </div>
 
+        <div class="my-5 text-center">
+          <label for="ricercaCliente" class="mx-1">Ricerca fattura per data. <b>A partire da: </b></label>
+          <input type="date" class="mx-1" [(ngModel)]="ricercaFatturaD1" name="ricercaCliente">
+
+          <label for="ricercaCliente" class="mx-1"><b>Fino a: </b></label>
+          <input type="date" class="mx-1" [(ngModel)]="ricercaFatturaD2" name="ricercaCliente">
+          <button type="button" class="btn btn-sm color1 mx-1 text-white" (click)="ricercaFatt()">Effettua ricerca</button>
+          <button type="button" class="btn btn-sm color2 mx-1 text-white" (click)="svuotaRicerca()">Svuota ricerca</button>
+        </div>
+
         <table class="table table-striped text-center">
             <thead>
               <tr>

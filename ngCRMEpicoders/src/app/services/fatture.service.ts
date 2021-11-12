@@ -56,5 +56,10 @@ export class FattureService {
   removeInvoices(obj: Ifatture) {
     return this.http.delete(this.urlFatture2 + obj.id);
   }
+
+  getInvoicesDate(obj: string, obj2: string) {
+    let url = '/api/fatture/data/?from=' + obj + '&to=' + obj2 + '&page=0&size=100&sort=id,DESC'
+    return this.http.get<Iresponse>(environment.urlAPI + url);
+  }
   
 }

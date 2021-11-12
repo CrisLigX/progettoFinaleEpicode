@@ -69,8 +69,7 @@ export class InserimentoProvinceComuniComponent implements OnInit {
 
     if (this.nuovaProvincia.nome != "" && this.nuovaProvincia.sigla != "") {
       if (!this.province.find(element => element.nome == this.nuovaProvincia.nome)) {
-        this.ProvinceService.insertProvince(this.nuovaProvincia).subscribe(response => console.log(response))
-        this.GetProvince();
+        this.ProvinceService.insertProvince(this.nuovaProvincia).subscribe(response => this.GetProvince());
         this.risultatoProv = 'Provincia inserita con successo!'
       } else {
         alert('Provincia già presente nel database!')
@@ -78,6 +77,11 @@ export class InserimentoProvinceComuniComponent implements OnInit {
     } else {
       alert('Riempi tutti i campi')
     }
+  }
+
+  
+  tornaIndietro() {
+    history.back()
   }
 
 

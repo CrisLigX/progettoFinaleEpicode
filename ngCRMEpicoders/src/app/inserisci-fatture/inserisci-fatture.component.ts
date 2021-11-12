@@ -28,7 +28,7 @@ export class InserisciFattureComponent implements OnInit {
   }
 
   Btx01 = 'Salva fattura'
-  Btx02 = 'Inserisci una nuova fattura'
+  Btx02 = 'Inserisci una nuova fattura. ID Cliente: ' + this.newFattura.cliente.id 
 
   statoFattura: Istatofattura[] = [];
 
@@ -44,11 +44,11 @@ export class InserisciFattureComponent implements OnInit {
   
     this.route.params.subscribe(params => {
       if(params.idFattura) {
-        this.FattureService.getInvoicesById(params.idFattura).subscribe(response => this.newFattura = response)
-        this.Btx01 = 'Aggiorna fattura'
-        this.Btx02 = 'Aggiorna fattura'
+        this.FattureService.getInvoicesById(params.idFattura).subscribe(response => {this.newFattura = response; this.Btx02 = 'Aggiorna fattura ID: ' + this.newFattura.id})
+        this.Btx01 = 'Aggiorna fattura';
       } else {
         console.log('Nessun parametro')
+        this.Btx02 = 'Inserisci una nuova fattura. ID Cliente: ' + this.newFattura.cliente.id;
       }
     })
   }

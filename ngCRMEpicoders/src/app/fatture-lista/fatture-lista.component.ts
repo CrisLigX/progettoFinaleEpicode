@@ -13,7 +13,18 @@ export class FattureListaComponent implements OnInit {
 
   invoices: Ifatture[] = [];
 
+  ricercaFatturaD1: string = "";
+  ricercaFatturaD2: string = "";
+
   userAdmin: boolean = true;
+
+  changeFormat(data: string): string {
+    let dataArray = data.split('-')
+    let year = dataArray[0];
+    let month = dataArray[1];
+    let day = dataArray[2];
+    return day + '.' + month + '.' + year
+  }
 
   constructor(private FattureService: FattureService, private router: Router, private LoginService: LoginService) { }
 
@@ -48,5 +59,19 @@ export class FattureListaComponent implements OnInit {
     if (obj.cliente.id) {
       this.router.navigate(['dettaglioclienti/', + obj.cliente.id])
     }
+  }
+
+  ricercaFatt() {
+
+    let ricercaFattura = {
+      data1: this.changeFormat(this.ricercaFatturaD1),
+      data2: this.changeFormat(this.ricercaFatturaD2)
+    }
+
+    this.FattureService.getInvoicesDate(ricercaFattura.data1, ricercaFattura.data2).subscribe(response => this.invoices = response.content)
+  }
+
+  svuotaRicerca() {
+    this.getInvoices30();
   }
 }
