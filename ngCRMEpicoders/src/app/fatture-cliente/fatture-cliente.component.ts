@@ -31,7 +31,7 @@ export class FattureClienteComponent implements OnInit {
   }
 
   setParams() {
-    this.route.params.subscribe(params => {this.idCliente = params.id, console.log(this.idCliente)});
+    this.route.params.subscribe(params => this.idCliente = params.id);
   }
 
   newFatture() {
