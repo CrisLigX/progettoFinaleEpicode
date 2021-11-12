@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    if (this.userSignUp.username != '' && this.userSignUp.password != '' && this.userSignUp.email != '') {
+    if (this.userSignUp.username.trim() != '' && this.userSignUp.password.trim() != '' && this.userSignUp.email.trim() != '') {
       this.SignupService.saveUser(this.userSignUp).subscribe(response => {console.log(response); alert('Utente registrato con successo! 😊'); this.router.navigate(['login'])})
     } else {
       alert('Compila tutti i campi!')

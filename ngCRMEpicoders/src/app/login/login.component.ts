@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ILogin } from '../interfaces/i-login';
+import { Login } from '../class/login';
 import { ILoginOk } from '../interfaces/i-login-ok';
 import { LoginService } from '../services/login.service';
 import { RouteGuardService } from '../services/route-guard.service';
@@ -20,17 +20,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  loginUser: ILogin = {
-    username: '',
-    password: ''
-  }
+  loginUser: Login = new Login;
 
   loginOk!: ILoginOk;
 
   typepsw = 'password'
 
   signin() {
-    if (this.loginUser.username != '' && this.loginUser.password != '') {
+    if (this.loginUser.username.trim() != '' && this.loginUser.password.trim() != '') {
       this.getUser();
     } else {
       alert('Compila tutti i campi!')

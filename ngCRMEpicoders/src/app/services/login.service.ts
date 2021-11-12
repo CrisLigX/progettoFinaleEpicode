@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ILogin } from '../interfaces/i-login';
+import { Login } from '../class/login';
 import { ILoginOk } from '../interfaces/i-login-ok';
 import { Iresponse } from '../interfaces/iresponse';
 import { RouteGuardService } from './route-guard.service';
@@ -19,7 +19,7 @@ export class LoginService {
 
   constructor(private http: HttpClient, private RouteGuard: RouteGuardService) { }
 
-  getUsersLogin(obj: ILogin) {
+  getUsersLogin(obj: Login) {
     return this.http.post<ILoginOk>(this.urlLogin, obj);
   }
 
@@ -33,7 +33,7 @@ export class LoginService {
     localStorage.setItem('userType', tkn)
   }
 
-  readUserType(): any {
+  readUserType(): boolean {
     return localStorage.getItem('userType') === 'ROLE_ADMIN';
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IClienti } from '../interfaces/iclienti';
+import { Clienti } from '../class/clienti';
 import { ClientiService } from '../services/clienti.service';
 import { LoginService } from '../services/login.service';
 
@@ -12,7 +12,7 @@ import { LoginService } from '../services/login.service';
 })
 export class ListaUtentiComponent implements OnInit {
 
-  clients: IClienti[] = [];
+  clients: Clienti[] = [];
 
   userAdmin: boolean = true;
 
@@ -62,11 +62,11 @@ export class ListaUtentiComponent implements OnInit {
     this.userAdmin = this.LoginService.readUserType();
   }
 
-  removeClient(item: IClienti) {
+  removeClient(item: Clienti) {
     this.ClientiService.deleteClients(item).subscribe(response => { console.log(response), console.log('Utente eliminato'), this.getClients20() })
   }
 
-  selectClient(obj: IClienti): void {
+  selectClient(obj: Clienti): void {
     this.router.navigate(['dettaglioclienti', obj.id,]);
   }
 

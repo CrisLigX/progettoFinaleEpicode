@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { IClienti } from '../interfaces/iclienti';
+import { Clienti } from '../class/clienti';
 import { InewClient } from '../interfaces/inew-client';
 import { Iresponse } from '../interfaces/iresponse';
 
@@ -37,7 +37,7 @@ export class ClientiService {
     return this.http.get<any>(this.urlClienti2 + id)
   }
 
-  deleteClients(obj: IClienti) {
+  deleteClients(obj: Clienti) {
     return this.http.delete(this.urlClienti2 + obj.id);
   }
 
@@ -45,7 +45,7 @@ export class ClientiService {
     return this.http.post(environment.urlAPI + '/api/clienti', obj);
   }
 
-  updateClients(item: IClienti) {
+  updateClients(item: Clienti) {
     return this.http.put(this.urlClienti2 + item.id, item);
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IClienti } from '../interfaces/iclienti';
+import { Clienti } from '../class/clienti';
 import { Icomuni } from '../interfaces/icomuni';
 import { Iprovince } from '../interfaces/iprovince';
 import { ClientiService } from '../services/clienti.service';
@@ -14,56 +14,17 @@ import { ProvinceService } from '../services/province.service';
 })
 export class InserisciClienteComponent implements OnInit {
 
-  NewClient: IClienti = {
-    ragioneSociale: "",
-    partitaIva: "",
-    tipoCliente: "",
-    email: "",
-    pec: "",
-    telefono: "",
-    nomeContatto: "",
-    cognomeContatto: "",
-    telefonoContatto: "",
-    emailContatto: "",
-    indirizzoSedeOperativa: {
-        via: "",
-        civico: "",
-        cap: "",
-        localita: "",
-        comune: {
-            nome: "",
-            provincia: {
-                nome: "",
-                sigla: ""
-            }
-        }
-    },
-    indirizzoSedeLegale: {
-        via: "",
-        civico: "",
-        cap: "",
-        localita: "",
-        comune: {
-            nome: "",
-            provincia: {
-                nome: "",
-                sigla: ""
-            }
-        }
-    },
-    dataInserimento: "",
-    dataUltimoContatto: ""
-}
+  NewClient: Clienti = new Clienti;
 
-tipoClienti = [];
-comuni: Icomuni[] = [];
-comuniOp: Icomuni[] = [];
-comuniFilter: Icomuni[] = [];
-province: Iprovince[] = [];
-Btx01 = 'Salva cliente'
-Btx02 = 'Inserisci un nuovo cliente'
-ProvinciaSelezionataLEG = '';
-ProvinciaSelezionataOP = '';
+  tipoClienti = [];
+  comuni: Icomuni[] = [];
+  comuniOp: Icomuni[] = [];
+  comuniFilter: Icomuni[] = [];
+  province: Iprovince[] = [];
+  Btx01 = 'Salva cliente'
+  Btx02 = 'Inserisci un nuovo cliente'
+  ProvinciaSelezionataLEG = '';
+  ProvinciaSelezionataOP = '';
 
   constructor(
     private ClientsService: ClientiService,
@@ -78,7 +39,7 @@ ProvinciaSelezionataOP = '';
     this.NewClient.dataUltimoContatto = Date.now().toString()
 
     this.route.params.subscribe(params => {
-      if(params.id) {
+      if (params.id) {
         this.ClientsService.getClientsById(params.id).subscribe(response => this.NewClient = response)
         this.Btx01 = 'Aggiorna utente'
         this.Btx02 = 'Aggiorna cliente'
@@ -86,18 +47,18 @@ ProvinciaSelezionataOP = '';
         console.log('Nessun parametro')
       }
     })
-  
+
     this.TipoClienti();
     this.GetComuni();
     this.GetProvince();
     this.NewClientProv();
 
-    
+
   }
 
   saveProduct() {
     if (this.NewClient.ragioneSociale != '' && this.NewClient.partitaIva != '' && this.NewClient.indirizzoSedeLegale.comune.nome != '' && this.NewClient.indirizzoSedeOperativa.comune.nome != '' && this.NewClient.tipoCliente != '') {
-      if(!this.NewClient.id) {
+      if (!this.NewClient.id) {
         console.log('Cliente aggiunto!')
         console.log(this.NewClient)
         this.ClientsService.insertClients(this.NewClient).subscribe(response => this.router.navigate(['listautenti']));
@@ -105,7 +66,7 @@ ProvinciaSelezionataOP = '';
       } else {
         this.ClientsService.updateClients(this.NewClient).subscribe(response => this.router.navigate(['listautenti']));
         console.log('Cliente aggiornato!')
-      }      
+      }
     } else {
       alert('Compila tutti i campi!')
     }
@@ -116,7 +77,7 @@ ProvinciaSelezionataOP = '';
   }
 
   GetComuni() {
-    this.ComuniService.getAllComuni().subscribe(response => {this.comuni = response.content, this.comuniOp = response.content, this.comuniFilter = response.content});
+    this.ComuniService.getAllComuni().subscribe(response => { this.comuni = response.content, this.comuniOp = response.content, this.comuniFilter = response.content });
   }
 
   GetProvince() {

@@ -1,4 +1,4 @@
-import { IClienti } from "./iclienti";
+import { Clienti } from "../class/clienti";
 
 export interface Ifatture {
     id?: number,
@@ -10,5 +10,5 @@ export interface Ifatture {
         id?: number,
         nome: string
     },
-    cliente: IClienti,
+    cliente: Clienti,
 }

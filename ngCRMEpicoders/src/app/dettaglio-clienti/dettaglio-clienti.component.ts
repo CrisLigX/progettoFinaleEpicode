@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IClienti } from '../interfaces/iclienti';
+import { Clienti } from '../class/clienti';
 import { ClientiService } from '../services/clienti.service';
 import { LoginService } from '../services/login.service';
 
@@ -16,46 +16,7 @@ export class DettaglioClientiComponent implements OnInit {
 
   constructor(private ClientsService: ClientiService, private router: Router, private route: ActivatedRoute, private LoginService: LoginService) {}
 
-  selClients: IClienti = {
-    ragioneSociale: "",
-    partitaIva: "",
-    tipoCliente: "",
-    email: "",
-    pec: "",
-    telefono: "",
-    nomeContatto: "",
-    cognomeContatto: "",
-    telefonoContatto: "",
-    emailContatto: "",
-    indirizzoSedeOperativa: {
-        via: "",
-        civico: "",
-        cap: "",
-        localita: "",
-        comune: {
-            nome: "",
-            provincia: {
-                nome: "",
-                sigla: ""
-            }
-        }
-    },
-    indirizzoSedeLegale: {
-        via: "",
-        civico: "",
-        cap: "",
-        localita: "",
-        comune: {
-            nome: "",
-            provincia: {
-                nome: "",
-                sigla: ""
-            }
-        }
-    },
-    dataInserimento: "",
-    dataUltimoContatto: ""
-}
+  selClients: Clienti = new Clienti;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => { this.ClientsService.getClientsById(params.id).subscribe(response => this.selClients = response)});
