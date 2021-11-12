@@ -4,7 +4,7 @@
 }
 
 .imgLogo {
-    width: 470px;
+    width: 430px;
 }
 
 .color1 {
@@ -84,6 +84,9 @@
     .imgLogo {
         width: 570px;
 }
+}
+
+@media screen and (min-width: 769px) {
 
     .sfondofixed2 {
         height: 100vh;
