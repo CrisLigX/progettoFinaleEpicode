@@ -134,7 +134,7 @@
                     <option selected [ngValue]="NewClient.indirizzoSedeOperativa.comune.provincia">{{NewClient.indirizzoSedeOperativa.comune.provincia.nome}}</option>
                     <option *ngFor="let item of province">{{item.nome}}</option>
                 </select>
-                <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire una nuova provincia</button>
+                <button type="button" class="btn btn-warning btn-sm mt-1" (click)="inserimentoProvCom()">Clicca per inserire una nuova provincia</button>
             </div>
 
             <div class="border p-3 col">
@@ -144,7 +144,7 @@
                     <option selected [ngValue]="NewClient.indirizzoSedeOperativa.comune">{{NewClient.indirizzoSedeOperativa.comune.nome}}</option>
                     <option [ngValue]="item" *ngFor="let item of comuniOp">{{item.nome}}</option>
                 </select>
-                <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire un nuovo comune</button>
+                <button type="button" class="btn btn-warning btn-sm mt-1" (click)="inserimentoProvCom()">Clicca per inserire un nuovo comune</button>
             </div>
 
         </div>
@@ -190,7 +190,7 @@
                     <option selected [ngValue]="NewClient.indirizzoSedeLegale.comune.provincia">{{NewClient.indirizzoSedeLegale.comune.provincia.nome}}</option>
                     <option *ngFor="let item of province">{{item.nome}}</option>
                 </select>
-                <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire una nuova provincia</button>
+                <button type="button" class="btn btn-warning btn-sm mt-1" (click)="inserimentoProvCom()">Clicca per inserire una nuova provincia</button>
             </div>
 
             <div class="border p-3 col">
@@ -200,7 +200,7 @@
                     <option selected [ngValue]="NewClient.indirizzoSedeLegale.comune">{{NewClient.indirizzoSedeLegale.comune.nome}}</option>
                     <option [ngValue]="item" *ngFor="let item of comuni">{{item.nome}}</option>
                 </select>
-                <button type="button" class="btn btn-warning btn-sm mt-1" [routerLink] = "['/inserimentoprovcom']">Clicca per inserire un nuovo comune</button>
+                <button type="button" class="btn btn-warning btn-sm mt-1" (click)="inserimentoProvCom()">Clicca per inserire un nuovo comune</button>
             </div>
 
         </div>

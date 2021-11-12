@@ -90,6 +90,7 @@ ProvinciaSelezionataOP = '';
     this.TipoClienti();
     this.GetComuni();
     this.GetProvince();
+    this.NewClientProv();
 
     
   }
@@ -100,6 +101,7 @@ ProvinciaSelezionataOP = '';
         console.log('Cliente aggiunto!')
         console.log(this.NewClient)
         this.ClientsService.insertClients(this.NewClient).subscribe(response => this.router.navigate(['listautenti']));
+        localStorage.removeItem('NewClientProv')
       } else {
         this.ClientsService.updateClients(this.NewClient).subscribe(response => this.router.navigate(['listautenti']));
         console.log('Cliente aggiornato!')
@@ -128,6 +130,21 @@ ProvinciaSelezionataOP = '';
   changeComuni() {
     this.comuni = this.comuniFilter.filter(element => element.provincia.nome == this.ProvinciaSelezionataLEG)
     this.comuniOp = this.comuniFilter.filter(element => element.provincia.nome == this.ProvinciaSelezionataOP)
+  }
+
+  inserimentoProvCom() {
+    localStorage.setItem('NewClientProv', JSON.stringify(this.NewClient));
+    this.router.navigate(['inserimentoprovcom']);
+  }
+
+  NewClientProv() {
+    let NewClientProv = localStorage.getItem('NewClientProv');
+    if (NewClientProv) {
+      let NewClientProvOK = JSON.parse(NewClientProv);
+      if (NewClientProvOK) {
+        this.NewClient = NewClientProvOK;
+      }
+    }
   }
 
 }

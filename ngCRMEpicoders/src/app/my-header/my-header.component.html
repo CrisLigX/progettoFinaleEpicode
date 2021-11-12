@@ -20,6 +20,10 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" *ngIf="userAdmin" [routerLink] = "['/inserimentoprovcom']" routerLinkActive='router-link-active'>Inserisci comuni e province</a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" [routerLink] = "['/fatture']" routerLinkActive='router-link-active'>Fatture</a>
           </li>
 

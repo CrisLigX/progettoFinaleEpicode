@@ -24,6 +24,7 @@ export class MyHeaderComponent implements OnInit {
   effettuaLogout() {
     this.RouteGuardService.setLogin();
     localStorage.removeItem('token');
+    localStorage.removeItem('NewClientProv')
     this.router.navigate(['login']);
   }
 

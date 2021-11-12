@@ -67,7 +67,6 @@ export class ListaUtentiComponent implements OnInit {
   }
 
   selectClient(obj: IClienti): void {
-    console.log(obj.cognomeContatto)
     this.router.navigate(['dettaglioclienti', obj.id,]);
   }
 
