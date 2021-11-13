@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Invoices } from '../class/invoices';
 import { Ifatture } from '../interfaces/ifatture';
-import { InewFatture } from '../interfaces/inew-fatture';
 import { Iresponse } from '../interfaces/iresponse';
 
 @Injectable({
@@ -45,11 +45,11 @@ export class FattureService {
     return this.http.get<any>(this.urlFatture2 + id)
   }
 
-  insertInvoices(obj: InewFatture) {
+  insertInvoices(obj: Invoices) {
     return this.http.post(environment.urlAPI + '/api/fatture', obj);
   }
   
-  updateInvoices(obj: InewFatture) {
+  updateInvoices(obj: Invoices) {
     return this.http.put(this.urlFatture2 + obj.id, obj);
   }
 

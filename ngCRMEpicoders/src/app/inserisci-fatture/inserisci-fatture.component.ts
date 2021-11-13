@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Ifatture } from '../interfaces/ifatture';
-import { InewFatture } from '../interfaces/inew-fatture';
+import { Invoices } from '../class/invoices';
 import { Istatofattura } from '../interfaces/istatofattura';
 import { FattureService } from '../services/fatture.service';
 import { StatofatturaService } from '../services/statofattura.service';
@@ -13,19 +12,7 @@ import { StatofatturaService } from '../services/statofattura.service';
 })
 export class InserisciFattureComponent implements OnInit {
 
-  newFattura: InewFatture = {
-    data: "",
-    numero: 0,
-    anno: 2021,
-    importo: 0,
-    stato: {
-      id: 1,
-      nome: ""
-    },
-    cliente: {
-      id: 1
-    }
-  }
+  newFattura: Invoices = new Invoices;
 
   Btx01 = 'Salva fattura'
   Btx02 = 'Inserisci una nuova fattura. ID Cliente: ' + this.newFattura.cliente.id 
